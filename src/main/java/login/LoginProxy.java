@@ -1,6 +1,6 @@
 package login;
 
-public class LoginProxy {
+public class LoginProxy implements Login {
 
 	private String username, password;
   	private Login RL;
