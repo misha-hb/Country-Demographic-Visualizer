@@ -4,14 +4,15 @@ public class LoginServer {
   
   private static LoginServer instanceServer;
   
-  public LoginServer getInstance() {
+  public static LoginServer getInstance() {
     if (instanceServer == null)
       instanceServer = new LoginServer();
     return instanceServer;
   }
   
-  //public boolean verifyCredentials(String usr, String pwd) {
+  public boolean verifyCredentials(String usr, String pwd) {
   	// open credentials database and verify username and password
-  //}
+	return true;
+  }
 
 }
