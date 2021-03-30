@@ -1,5 +1,4 @@
-package main;
-
+package userInterface;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
@@ -476,12 +475,6 @@ public class MainUI extends JFrame {
 	}
 
 	public static void main(String[] args) {
-
-		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
-		frame.pack();
-		frame.setVisible(true);
 	}
-	// TODO Auto-generated method stub
 
 }
