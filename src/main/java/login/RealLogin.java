@@ -13,6 +13,5 @@ public class RealLogin implements Login {
 		frame.setVisible(true);
 		return true;
 	}
-	
 
 }
