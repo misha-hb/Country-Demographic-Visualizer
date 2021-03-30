@@ -1,5 +1,7 @@
 package main;
 
+import java.util.List;
+
 public class Selection {
   
   String analysisType, country;
