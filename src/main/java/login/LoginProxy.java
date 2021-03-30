@@ -13,9 +13,10 @@ public class LoginProxy implements Login {
  
   	public boolean authenticate() {
       LoginServer server = LoginServer.getInstance();
-      if (server.verifyCredentials(username, password))
+      if (server.verifyCredentials(username, password)) {
         RL.authenticate();
         return true;
+      }
       return false;
     }
 }
