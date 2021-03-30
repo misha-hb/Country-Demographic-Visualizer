@@ -1,5 +1,7 @@
 package main;
 
+import java.util.*;
+
 public class Selection {
   
   String analysisType, country;
@@ -21,7 +23,7 @@ public class Selection {
   }
   
 
-  public void setEndYear(String selectedYear) {
+  public void setEndYear(int selectedYear) {
     endYear = selectedYear;
   }
   
