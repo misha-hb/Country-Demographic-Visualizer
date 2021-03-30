@@ -11,8 +11,8 @@ public class LoginServer {
   }
   
   public boolean verifyCredentials(String usr, String pwd) {
-  	// open credentials database and verify username and password
-	return true;
+	if (usr.contentEquals("user") && pwd.contentEquals("pass")) return true;
+	return false;
   }
 
 }

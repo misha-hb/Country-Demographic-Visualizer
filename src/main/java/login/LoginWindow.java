@@ -1,6 +1,8 @@
 package login;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 public class LoginWindow extends javax.swing.JFrame {
 
@@ -22,12 +24,14 @@ public class LoginWindow extends javax.swing.JFrame {
         String password = String.valueOf(textPassword.getPassword());
         
         Login proxy = new LoginProxy(username, password);
-        proxy.authenticate();
-        
-        if("".equals(password) || "".equals(username)){
-            JOptionPane.showMessageDialog(this, "Name or password is empty!", "Incorrect Input", JOptionPane.ERROR_MESSAGE);
+       
+        if (!proxy.authenticate()) {
+        	javax.swing.JFrame errorWindow = new javax.swing.JFrame();
+        	errorWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        	JOptionPane.showMessageDialog(errorWindow, "Username or password is incorrect.");
+        	errorWindow.dispose();
         }
-
+        dispose();
     }
     
     
@@ -62,7 +66,6 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdLabel = new javax.swing.JLabel();
         textPassword = new javax.swing.JPasswordField();
         submitButton = new javax.swing.JButton();
-
 
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
@@ -118,6 +121,7 @@ public class LoginWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        
 
         pack();
     }
