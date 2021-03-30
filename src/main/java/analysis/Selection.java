@@ -1,12 +1,29 @@
-package main;
+package analysis;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Selection {
   
-  String analysisType, country;
-  int startYear, endYear;
-  List<String> viewers;
+  private String analysisType, country, startYear, endYear;
+  private List<String> viewers;
+  
+  public Selection(String analysisType, String country, String startYear, String endYear, List<String> viewers) {
+	  this.analysisType = analysisType;
+	  this.country = country;
+	  this.startYear = startYear;
+	  this.endYear = endYear;
+	  this.viewers = viewers;
+  }
+  
+  public Selection(String analysisType, String country, String startYear, String endYear) {
+	  this.analysisType = analysisType;
+	  this.country = country;
+	  this.startYear = startYear;
+	  this.endYear = endYear;
+	  this.viewers = new ArrayList<String>();
+  }
   
   public void setAnalysisType(String selectedType) {
     analysisType = selectedType;
@@ -18,7 +35,7 @@ public class Selection {
   }
   
 
-  public void setStartYear(int selectedYear) {
+  public void setStartYear(String selectedYear) {
     startYear = selectedYear;
   }
   
@@ -44,20 +61,22 @@ public class Selection {
   }
 
 
-  public int getStartYear() {
+  public String getStartYear() {
     return startYear;
   }
 
-  public int getEndYear() {
+  public String getEndYear() {
     return endYear;
   }
 
   private boolean validateCountry(String country) {
     // open country exclusion file and validate country
     // return true if valid
+	  return false;
   }
   
   private boolean validatePeriod(int startYear, int endYear) {
+	  return false;
   }
 
 

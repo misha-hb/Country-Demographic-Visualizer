@@ -1,8 +1,8 @@
 package login;
 
 import javax.swing.JFrame;
-
 import main.MainUI;
+
 
 public class RealLogin implements Login {
 
@@ -13,6 +13,5 @@ public class RealLogin implements Login {
 		frame.setVisible(true);
 		return true;
 	}
-	
 
 }

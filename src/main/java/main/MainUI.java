@@ -1,4 +1,4 @@
-package userInterface;
+package main;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
@@ -41,9 +41,7 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 public class MainUI extends JFrame {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
