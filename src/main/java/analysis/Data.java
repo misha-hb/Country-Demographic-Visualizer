@@ -4,16 +4,16 @@ import java.util.List;
 
 public class Data {
 	private String type;
-	private List<Integer> values;
-	private List<Integer> years;
+	private List<Double> values;
+	private List<Double> years;
 	
-	public Data(String type, List<Integer> values, List<Integer> years) {
+	public Data(String type, List<Double> values, List<Double> years) {
 		this.type = type;
 		this.values = values;
 		this.years = years;
 	}
 	
-	public void setValues(List<Integer> newValues) {
+	public void setValues(List<Double> newValues) {
 		this.values = newValues;
 	}
 	
@@ -21,11 +21,11 @@ public class Data {
 		this.type = newType;
 	}
 	
-	public void setYears(List<Integer> newYears) {
+	public void setYears(List<Double> newYears) {
 		this.years = newYears;
 	}
 	
-	public List<Integer> getValues() {
+	public List<Double> getValues() {
 		return this.values;
 	}
 	
@@ -33,7 +33,7 @@ public class Data {
 		return this.type;
 	}
 	
-	public List<Integer> getYears() {
+	public List<Double> getYears() {
 		return this.years;
 	}
 	

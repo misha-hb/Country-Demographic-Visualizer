@@ -15,8 +15,7 @@ public class Reader {
 	}
 	
 	public Data retrieveData(String urlString, String type) {
-		if (type.contentEquals("Total Population")) {
-			List<Integer> populationForYears = new ArrayList<Integer>();
+			List<Double> values = new ArrayList<Double>();
 			
 			try {
 				URL url = new URL(urlString);
@@ -34,24 +33,24 @@ public class Reader {
 					JsonArray jsonArray = new JsonParser().parse(inline).getAsJsonArray();
 					int size = jsonArray.size();
 					int sizeOfResults = jsonArray.get(1).getAsJsonArray().size();
-					List<Integer> years = new ArrayList<Integer>();
+					List<Double> years = new ArrayList<Double>();
 					
 					for (int i = 0; i < sizeOfResults; i++) {
-						years.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsInt());
+						years.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsDouble());
 						if (jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").isJsonNull()) {
-							populationForYears.add(0);
+							values.add(0.0);
 						}else {
-							populationForYears.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsInt());
+							values.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble());
 						}
 					}
 					
-					Data data = new Data(type, populationForYears, years);
+					Data data = new Data(type, values, years);
 					return data;
 				}
 			}catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
+		
 		return null;
 	}
 }
