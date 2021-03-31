@@ -51,7 +51,7 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 	
-	private Selection selection = new Selection(null, null, 0, 0);
+	private Selection selection = new Selection(null, null, null, null);
 	
 	public static MainUI getInstance() {
 		if (instance == null)
@@ -75,6 +75,8 @@ public class MainUI extends JFrame {
 		countriesNames.add("Brazil");
 		countriesNames.sort(null);
 		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
+		String country = (String)countriesList.getSelectedItem();
+		selection.setCountry(country);
 
 		JLabel from = new JLabel("From");
 		JLabel to = new JLabel("To");
@@ -84,6 +86,11 @@ public class MainUI extends JFrame {
 		}
 		JComboBox<String> fromList = new JComboBox<String>(years);
 		JComboBox<String> toList = new JComboBox<String>(years);
+		String start = (String)fromList.getSelectedItem();
+		String end = (String)toList.getSelectedItem();
+		selection.setStartYear(start);
+		selection.setEndYear(end);
+		
 
 		JPanel north = new JPanel();
 		north.add(chooseCountryLabel);
@@ -141,6 +148,9 @@ public class MainUI extends JFrame {
 		methodsNames.add("Unemployment");
 
 		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
+		
+		String method = (String)methodsList.getSelectedItem();
+		selection.setAnalysisType(method);
 
 		JPanel south = new JPanel();
 		south.add(viewsLabel);
