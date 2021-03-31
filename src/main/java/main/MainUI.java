@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.*;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -40,12 +41,18 @@ import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import analysis.Selection;
+
+import userinterface.*;
+
 public class MainUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
-
+	
+	private Selection selection = new Selection(null, null, null, null);
+	
 	public static MainUI getInstance() {
 		if (instance == null)
 			instance = new MainUI();
@@ -54,9 +61,10 @@ public class MainUI extends JFrame {
 	}
 
 	private MainUI() {
+				
 		// Set window title
 		super("Country Statistics");
-
+		
 		// Set top bar
 		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
 		Vector<String> countriesNames = new Vector<String>();
@@ -67,6 +75,8 @@ public class MainUI extends JFrame {
 		countriesNames.add("Brazil");
 		countriesNames.sort(null);
 		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
+		String country = (String)countriesList.getSelectedItem();
+		selection.setCountry(country);
 
 		JLabel from = new JLabel("From");
 		JLabel to = new JLabel("To");
@@ -76,6 +86,11 @@ public class MainUI extends JFrame {
 		}
 		JComboBox<String> fromList = new JComboBox<String>(years);
 		JComboBox<String> toList = new JComboBox<String>(years);
+		String start = (String)fromList.getSelectedItem();
+		String end = (String)toList.getSelectedItem();
+		selection.setStartYear(start);
+		selection.setEndYear(end);
+		
 
 		JPanel north = new JPanel();
 		north.add(chooseCountryLabel);
@@ -87,6 +102,12 @@ public class MainUI extends JFrame {
 
 		// Set bottom bar
 		JButton recalculate = new JButton("Recalculate");
+		recalculate.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				RecalculateButton rb = new RecalculateButton();
+				rb.triggerRecalculate(selection);
+			}
+		});
 
 		JLabel viewsLabel = new JLabel("Available Views: ");
 
@@ -97,8 +118,24 @@ public class MainUI extends JFrame {
 		viewsNames.add("Scatter Chart");
 		viewsNames.add("Report");
 		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
+		final String view = (String)viewsList.getSelectedItem();
+		
 		JButton addView = new JButton("+");
+		addView.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				AddButton add = new AddButton();
+				add.triggerAdd(selection, view);
+			}
+		});
+		
 		JButton removeView = new JButton("-");
+		removeView.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				RemoveButton remove = new RemoveButton();
+				remove.triggerRemove(selection, view);
+			}
+		});
+
 
 		JLabel methodLabel = new JLabel("        Choose analysis method: ");
 
@@ -111,6 +148,9 @@ public class MainUI extends JFrame {
 		methodsNames.add("Unemployment");
 
 		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
+		
+		String method = (String)methodsList.getSelectedItem();
+		selection.setAnalysisType(method);
 
 		JPanel south = new JPanel();
 		south.add(viewsLabel);
