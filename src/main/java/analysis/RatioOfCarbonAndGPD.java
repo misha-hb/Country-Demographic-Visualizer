@@ -5,6 +5,8 @@ import java.util.List;
 
 public class RatioOfCarbonAndGPD extends Analysis {
 	private Reader reader;
+	private String carbonString = "CO2 emissions";
+	private String governmentEducationString = "Government expenditure on education, total";
 	
 	public RatioOfCarbonAndGPD() {
 		Reader reader = new Reader();
@@ -12,8 +14,8 @@ public class RatioOfCarbonAndGPD extends Analysis {
 	}
 	
 	public Result calculate(Selection selection) {
-		Data carbonData = readData("Carbon Emissions", selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data GPDData = readData("GPD", selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data carbonData = readData("CO2 emissions", selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data GPDData = readData(governmentEducationString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		return null;
 	}
