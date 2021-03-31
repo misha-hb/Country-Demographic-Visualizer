@@ -11,7 +11,7 @@ public class AverageGovernmentExpenditure extends Analysis{
 	
 	public Result calculate(Selection selection) {
 		
-		Data governmentEducationData = readData(EDUCATION, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data governmentEducationData = readData(EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		return null;
 	}

@@ -11,8 +11,8 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 	
 	public Result calculate(Selection selection) {
 				
-		Data governmentEducationData = readData(EDUCATION, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data healthData = readData(HEALTH, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data governmentEducationData = readData(EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(HEALTHCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		return null;
 	}

@@ -11,8 +11,8 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 	
 	public Result calculate(Selection selection) {
 		
-		Data hospitalBedsData = readData(BEDS, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data healthData = readData(HEALTHPERCAPITA, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data hospitalBedsData = readData(BEDSCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(HEALTHPERCAPITACODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 
 		return null;
 	}

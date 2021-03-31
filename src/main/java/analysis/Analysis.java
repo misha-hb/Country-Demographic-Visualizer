@@ -1,5 +1,8 @@
 package analysis;
 
+import java.util.Iterator;
+import java.util.List;
+
 public abstract class Analysis {
 	
 	protected static final String CARBON = "CO2 emissions";
@@ -49,37 +52,39 @@ public abstract class Analysis {
 		
 		String url = createURL(dataType, country, startYear, endYear);
 		
-		return reader.retrieveData(url,dataType);
+		
+		
+		Data d = reader.retrieveData(url,dataType);
+		
+		List<Double> l = d.getValues();
+		List<Integer> l2 = d.getYears();
+		
+		Iterator<Double> i1 = l.iterator();
+		Iterator<Integer> i2 = l2.iterator();
+		
+		while (i1.hasNext()) {
+			System.out.println(i1.next());
+			System.out.println(i2.next());
+		}
+		
+		return d;
+		
 	}
 	
 	protected String createURL(String type, String country, String startYear, String endYear) {
-		String indicator = "";
-		
-		if (type.contentEquals(CARBON)) {
-			indicator = CARBONCODE;
-		}else if (type.contentEquals(ENERGY)) {
-			indicator = ENERGYCODE;
-		}else if (type.contentEquals(AIR)) {
-			indicator = AIRCODE;
-		}else if (type.contentEquals(FOREST)) {
-			indicator = FORESTCODE;
-		}else if (type.contentEquals(GDP)) {
-			indicator = GDPCODE;
-		}else if (type.contentEquals(EDUCATION)) {
-			indicator = EDUCATIONCODE;
-		}else if (type.contentEquals(BEDS)) {
-			indicator = BEDSCODE;
-		}else if (type.contentEquals(HEALTHPERCAPITA)) {
-			indicator = HEALTHPERCAPITACODE;
-		}else if (type.contentEquals(INFANT)) {
-			indicator = INFANTCODE;
-		}else if (type.contentEquals(HEALTH)) {
-			indicator = HEALTHCODE;
-		}
 
-		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", country, indicator, startYear, endYear);
+		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", country, type, startYear, endYear);
 		
 		System.out.println(urlString);
 		return urlString;
+	}
+	
+	public static void main(String[] args) {
+		
+		Selection selection = new Selection("CO2 Emissions vs Energy Use vs Air Pollution", "can", "2000", "2005");
+		AnalysisFactory f = new AnalysisFactory();
+		Analysis s = f.createAnalysis(selection);
+		s.calculate(selection);
+		
 	}
 }

@@ -11,9 +11,9 @@ public class COVsEnergyVsAir extends Analysis{
 	
 	public Result calculate(Selection selection) {
 		
-		Data carbonData = readData(CARBON, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data energyData = readData(ENERGY, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data airData = readData(AIR, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data carbonData = readData(CARBONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data energyData = readData(ENERGYCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data airData = readData(AIRCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		return null;
 	}

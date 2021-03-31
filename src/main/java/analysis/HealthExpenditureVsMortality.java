@@ -16,8 +16,8 @@ public class HealthExpenditureVsMortality extends Analysis {
 		String startYear = selection.getStartYear();
 		String endYear = selection.getEndYear();
 		
-		Data healthData = readData(HEALTHPERCAPITA, country, startYear, endYear);
-		Data mortalityData = readData(INFANT, country, startYear, endYear);
+		Data healthData = readData(HEALTHPERCAPITACODE, country, startYear, endYear);
+		Data mortalityData = readData(INFANTCODE, country, startYear, endYear);
 		
 		return null;
 	}
