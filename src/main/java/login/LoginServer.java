@@ -2,6 +2,7 @@ package login;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class LoginServer {
   
@@ -18,7 +19,7 @@ public class LoginServer {
    * @param pwd is the password entered by the user
    * @return true if credentials are verified
    */
-  public boolean verifyCredentials(String usr, String pwd) {
+  public boolean verifyCredentials(String usr, String pwd) throws IOException {
 	  	// open credentials database and verify username and password
 		
 		//only the password is case sensitive  
@@ -29,14 +30,14 @@ public class LoginServer {
 				return true;
 		}
 		return false;
-  }
+	  }
 		
   
   /**
    * @param file to be read (country exclusion file / credentials database file)
    * @return array with contents of country exclusion file/credentials database read
    */
-  public String[] readFile(String file) {
+  public String[] readFile(String file) throws IOException {
 	  String [] databaseArray = new String [1];
 	  try {  
 		  	BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -46,10 +47,10 @@ public class LoginServer {
 	    		readLine = reader.readLine();
 	    	}
 	    	reader.close();
+	  	    return databaseArray;
 	    }
+		
 		finally {
-			return databaseArray;
 		}
   }
-
 }
