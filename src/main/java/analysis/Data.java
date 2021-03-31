@@ -5,9 +5,9 @@ import java.util.List;
 public class Data {
 	private String type;
 	private List<Double> values;
-	private List<Double> years;
+	private List<Integer> years;
 	
-	public Data(String type, List<Double> values, List<Double> years) {
+	public Data(String type, List<Double> values, List<Integer> years) {
 		this.type = type;
 		this.values = values;
 		this.years = years;
@@ -21,7 +21,7 @@ public class Data {
 		this.type = newType;
 	}
 	
-	public void setYears(List<Double> newYears) {
+	public void setYears(List<Integer> newYears) {
 		this.years = newYears;
 	}
 	
@@ -33,7 +33,7 @@ public class Data {
 		return this.type;
 	}
 	
-	public List<Double> getYears() {
+	public List<Integer> getYears() {
 		return this.years;
 	}
 	

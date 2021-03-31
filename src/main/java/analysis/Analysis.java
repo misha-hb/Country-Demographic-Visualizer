@@ -3,7 +3,7 @@ package analysis;
 import java.util.Iterator;
 import java.util.List;
 
-public class Analysis {
+public abstract class Analysis {
 	private Reader reader;
 	
 	public Analysis() {
@@ -54,17 +54,5 @@ public class Analysis {
 		
 		System.out.println(urlString);
 		return urlString;
-	}
-	
-	public static void main(String[] args) {
-		Selection s = new Selection("CO2 emissions", "usa", "2000","2005");
-		s.addViewer("ScatterChart");
-		Analysis a = new Analysis();
-		Data d = a.readData(s);
-		List<Double> l = d.getValues();
-		Iterator<Double> iterator = l.iterator();
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
-		}
 	}
 }

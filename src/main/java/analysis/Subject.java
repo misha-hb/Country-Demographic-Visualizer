@@ -3,10 +3,11 @@ package analysis;
 import main.Viewer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public abstract class Subject {
-	private ArrayList<Viewer> viewers = new ArrayList<Viewer>();
+	private List<Viewer> viewers = new ArrayList<Viewer>();
 	
 	public void attach(Viewer viewer) {
 		viewers.add(viewer);

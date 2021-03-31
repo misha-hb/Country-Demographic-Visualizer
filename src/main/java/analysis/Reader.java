@@ -16,6 +16,7 @@ public class Reader {
 	
 	public Data retrieveData(String urlString, String type) {
 			List<Double> values = new ArrayList<Double>();
+			List<Integer> years = new ArrayList<Integer>();
 			
 			try {
 				URL url = new URL(urlString);
@@ -31,12 +32,10 @@ public class Reader {
 					}
 					sc.close();
 					JsonArray jsonArray = new JsonParser().parse(inline).getAsJsonArray();
-					int size = jsonArray.size();
 					int sizeOfResults = jsonArray.get(1).getAsJsonArray().size();
-					List<Double> years = new ArrayList<Double>();
 					
 					for (int i = 0; i < sizeOfResults; i++) {
-						years.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsDouble());
+						years.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsInt());
 						if (jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").isJsonNull()) {
 							values.add(0.0);
 						}else {
