@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HealthExpenditureVsMortality extends Analysis {
-	private Reader reader;
 	private String healthString = "Current health expenditure";
 	private String mortalityString = "Mortality rate, infant";
 	
 	public HealthExpenditureVsMortality() {
-		Reader reader = new Reader();
+		super();
 		
 	}
 	
@@ -29,7 +28,7 @@ public class HealthExpenditureVsMortality extends Analysis {
 		
 		String URL = createURL(dataType, country, startYear, endYear);
 		
-		Data dataObj = reader.retrieveData(URL, dataType);
+		Data dataObj = getReader().retrieveData(URL, dataType);
 		
 		return dataObj;
 	}

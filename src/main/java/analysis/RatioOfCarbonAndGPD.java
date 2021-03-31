@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RatioOfCarbonAndGPD extends Analysis {
-	private Reader reader;
 	
 	public RatioOfCarbonAndGPD() {
-		Reader reader = new Reader();
+		super();
 		
 	}
 	
@@ -29,8 +28,8 @@ public class RatioOfCarbonAndGPD extends Analysis {
 		String GPDURL = createURL("GPD", country, startYear, endYear);
 		
 		//Three separate reader calls per analysis type
-		Data carbonData = reader.retrieveData(carbonURL,analysisType);
-		Data GPDData = reader.retrieveData(GPDURL,analysisType);
+		Data carbonData = getReader().retrieveData(carbonURL,analysisType);
+		Data GPDData = getReader().retrieveData(GPDURL,analysisType);
 		
 		dataList.add(carbonData);
 		dataList.add(GPDData);

@@ -3,12 +3,9 @@ package analysis;
 import java.util.*;
 
 public class COVsEnergyVsAir extends Analysis{
-	
-	private Reader reader;
-	
+
 	public COVsEnergyVsAir() {
-		Reader reader = new Reader();
-		
+		super();	
 	}
 	
 	public Result calculate(Selection selection) {
@@ -30,9 +27,9 @@ public class COVsEnergyVsAir extends Analysis{
 		String airURL = createURL("Air Pollution", country, startYear, endYear);
 		
 		//Three separate reader calls per analysis type
-		Data carbonData = reader.retrieveData(carbonURL,analysisType);
-		Data energyData = reader.retrieveData(energyURL,analysisType);
-		Data airData = reader.retrieveData(airURL,analysisType);
+		Data carbonData = getReader().retrieveData(carbonURL,analysisType);
+		Data energyData = getReader().retrieveData(energyURL,analysisType);
+		Data airData = getReader().retrieveData(airURL,analysisType);
 		
 		dataList.add(carbonData);
 		dataList.add(energyData);

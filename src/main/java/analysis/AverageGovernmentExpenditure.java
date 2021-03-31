@@ -3,11 +3,10 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 //The average of Government expenditure on education, total (% of GDP) for the selected years
-public class AverageGovernmentExpenditure {
-	private Reader reader;
+public class AverageGovernmentExpenditure extends Analysis{
 	
 	public AverageGovernmentExpenditure() {
-		Reader reader = new Reader();	
+		super();
 	}
 	
 	public Result calculate(Selection selection) {
@@ -28,7 +27,7 @@ public class AverageGovernmentExpenditure {
 	
 		
 		//reader call for analysis type
-		Data governmentData = reader.retrieveData(governmentURL,analysisType);
+		Data governmentData = getReader().retrieveData(governmentURL,analysisType);
 		
 		dataList.add(governmentData);
 		
