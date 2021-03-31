@@ -3,7 +3,7 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RatioOfCarbonAndGPD {
+public class RatioOfCarbonAndGPD extends Analysis {
 	private Reader reader;
 	
 	public RatioOfCarbonAndGPD() {

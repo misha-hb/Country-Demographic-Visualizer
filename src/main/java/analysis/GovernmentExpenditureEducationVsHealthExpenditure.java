@@ -3,7 +3,7 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GovernmentExpenditureEducationVsHealthExpenditure {
+public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis {
 private Reader reader;
 	
 	public GovernmentExpenditureEducationVsHealthExpenditure() {
