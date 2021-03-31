@@ -112,6 +112,7 @@ public class MainUI extends JFrame {
 		viewsNames.add("Report");
 		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
 		final String view = (String)viewsList.getSelectedItem();
+		
 		JButton addView = new JButton("+");
 		addView.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +120,7 @@ public class MainUI extends JFrame {
 				add.triggerAdd(selection, view);
 			}
 		});
+		
 		JButton removeView = new JButton("-");
 		removeView.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
