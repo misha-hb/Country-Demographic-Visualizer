@@ -3,12 +3,10 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AverageForestArea {
-	private Reader reader;
+public class AverageForestArea extends Analysis {
 	
 	public AverageForestArea() {
-		Reader reader = new Reader();
-		
+		super();
 	}
 	
 	public Result calculate(Selection selection) {
@@ -29,7 +27,7 @@ public class AverageForestArea {
 	
 		
 		//reader call for analysis type
-		Data forestData = reader.retrieveData(forestURL,analysisType);
+		Data forestData = getReader().retrieveData(forestURL,analysisType);
 		
 		dataList.add(forestData);
 		

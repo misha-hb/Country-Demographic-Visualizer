@@ -7,6 +7,13 @@ public abstract class Analysis {
 		reader = new Reader();
 	}
 	
+<<<<<<< HEAD
+=======
+	public Reader getReader() {
+		return this.reader;
+	}
+	
+>>>>>>> branch 'master' of https://repo.csd.uwo.ca/scm/compsci2212_w2021/group4.git
 	public abstract Result calculate(Selection selection);
 	
 	public Data readData(String dataType, String country, String startYear, String endYear) {

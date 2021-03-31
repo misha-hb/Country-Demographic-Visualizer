@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis {
-	private Reader reader;
 	private String governmentEducationString = "Government expenditure on education, total";
 	private String healthString = "Current health expenditure";
 	
 	public GovernmentExpenditureEducationVsHealthExpenditure() {
-		Reader reader = new Reader();
+		super();
 	}
 	
 	public Result calculate(Selection selection) {
@@ -25,7 +24,7 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 		
 		String URL = createURL(dataType, country, startYear, endYear);
 
-		Data dataObj = reader.retrieveData(URL, dataType);
+		Data dataObj =  getReader().retrieveData(URL, dataType);
 
 		return dataObj;
 	}
