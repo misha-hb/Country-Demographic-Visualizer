@@ -15,13 +15,10 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 	
 	public Result calculate(Selection selection) {
 		
-		String country = selection.getCountry();
-		String startYear = selection.getStartYear();
-		String endYear = selection.getEndYear();
-		
-		Data hospitalBedsData = readData(hospitalBedsString, country, startYear, endYear);
-		Data healthData = readData(healthString, country, startYear, endYear);
+		Data hospitalBedsData = readData(hospitalBedsString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(healthString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 
+		return null;
 	}
 	
 	public Data readData(String dataType, String country, String startYear, String endYear) {
@@ -33,7 +30,6 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 		return dataObj;
 	}
 	
-s	
 	private void computeRatio() {
 	}
 }

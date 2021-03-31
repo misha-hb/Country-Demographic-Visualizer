@@ -13,14 +13,9 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 	}
 	
 	public Result calculate(Selection selection) {
-		
-		//Collect data from selection
-		String country = selection.getCountry();
-		String startYear = selection.getStartYear();
-		String endYear = selection.getEndYear();
-		
-		Data governmentEducationData = readData(governmentEducationString, country, startYear, endYear);
-		Data healthData = readData(healthString, country, startYear, endYear);
+				
+		Data governmentEducationData = readData(governmentEducationString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(healthString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		return null;
 		
@@ -28,7 +23,6 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 	
 	public Data readData(String dataType, String country, String startYear, String endYear) {
 		
-		//Creating each URL per analysis Type
 		String URL = createURL(dataType, country, startYear, endYear);
 
 		Data dataObj = reader.retrieveData(URL, dataType);
