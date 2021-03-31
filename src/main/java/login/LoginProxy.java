@@ -1,5 +1,7 @@
 package login;
 
+import java.io.*;
+
 public class LoginProxy implements Login {
 
 	private String username, password;
@@ -13,10 +15,12 @@ public class LoginProxy implements Login {
  
   	public boolean authenticate() {
       LoginServer server = LoginServer.getInstance();
-      if (server.verifyCredentials(username, password)) {
-        RL.authenticate();
-        return true;
+      try {
+    	  if (server.verifyCredentials(username, password)) {
+    		  RL.authenticate();
+    		  return true;}
       }
+      catch (IOException e) {}
       return false;
     }
 }
