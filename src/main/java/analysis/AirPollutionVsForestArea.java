@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 //PM2.5 air pollution, mean annual exposure (micrograms per cubic meter) vs Forest area (% of land area) 
-public class AirPollutionVsForestArea {
-	private Reader reader;
+public class AirPollutionVsForestArea extends Analysis{
 	
 	public AirPollutionVsForestArea() {
-		Reader reader = new Reader();
+		super();
 	}
 	
 	public Result calculate(Selection selection) {
@@ -29,8 +28,8 @@ public class AirPollutionVsForestArea {
 		String forestURL = createURL("Forest Area", country, startYear, endYear);
 		
 		//Three separate reader calls per analysis type
-		Data airData = reader.retrieveData(airURL,analysisType);
-		Data forestData = reader.retrieveData(forestURL,analysisType);
+		Data airData = getReader().retrieveData(airURL,analysisType);
+		Data forestData = getReader().retrieveData(forestURL,analysisType);
 	
 		
 		dataList.add(airData);
@@ -52,6 +51,7 @@ public class AirPollutionVsForestArea {
 		
 		return urlString;
 	}
+
 }
 
 
