@@ -10,6 +10,14 @@ public class Selection {
   private int startYear, endYear;
   private List<String> viewers;
   
+  
+  //public Selection() {
+	  //this.analysisType = null;
+	  //this.country = null;
+	  //this.startYear = null;
+	  //this.endYear = null;
+	  //this.viewers = null;
+  //}
   public Selection(String analysisType, String country, int startYear, int endYear, List<String> viewers) {
 	  this.analysisType = analysisType;
 	  this.country = country;
