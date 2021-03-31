@@ -6,10 +6,11 @@ import java.util.List;
 
 public class Selection {
   
-  private String analysisType, country, startYear, endYear;
+  private String analysisType, country;
+  private int startYear, endYear;
   private List<String> viewers;
   
-  public Selection(String analysisType, String country, String startYear, String endYear, List<String> viewers) {
+  public Selection(String analysisType, String country, int startYear, int endYear, List<String> viewers) {
 	  this.analysisType = analysisType;
 	  this.country = country;
 	  this.startYear = startYear;
@@ -17,7 +18,7 @@ public class Selection {
 	  this.viewers = viewers;
   }
   
-  public Selection(String analysisType, String country, String startYear, String endYear) {
+  public Selection(String analysisType, String country, int startYear, int endYear) {
 	  this.analysisType = analysisType;
 	  this.country = country;
 	  this.startYear = startYear;
@@ -35,12 +36,12 @@ public class Selection {
   }
   
 
-  public void setStartYear(String selectedYear) {
+  public void setStartYear(int selectedYear) {
     startYear = selectedYear;
   }
   
 
-  public void setEndYear(String selectedYear) {
+  public void setEndYear(int selectedYear) {
     endYear = selectedYear;
   }
   
@@ -61,11 +62,11 @@ public class Selection {
   }
 
 
-  public String getStartYear() {
+  public int getStartYear() {
     return startYear;
   }
 
-  public String getEndYear() {
+  public int getEndYear() {
     return endYear;
   }
 
