@@ -10,7 +10,7 @@ public abstract class Analysis {
 		reader = new Reader();
 	}
 	
-	public abstract Result calculate();
+	public abstract Result calculate(Selection selection);
 	
 	public Data readData(String dataType, String country, String startYear, String endYear) {
 		
