@@ -24,8 +24,8 @@ public class RatioHospitalAndHealthExpenditure {
 		String endYear = selection.getEndYear();
 		
 		//Creating each URL per analysis Type
-		String hospitalBedsURL = createURL("hospital beds", country, startYear, endYear);
-		String healthURL = createURL("health", country, startYear, endYear);
+		String hospitalBedsURL = createURL("Hospital Beds", country, startYear, endYear);
+		String healthURL = createURL("Health Expenditure", country, startYear, endYear);
 		
 		//Three separate reader calls per analysis type
 		Data hospitalBedsData = reader.retrieveData(hospitalBedsURL,analysisType);
@@ -40,9 +40,9 @@ public class RatioHospitalAndHealthExpenditure {
 	private String createURL(String type, String country, String startYear, String endYear) {
 		String indicator = "";
 		
-		if (type.equals("hospital beds")) {
+		if (type.equals("Hospital Beds")) {
 			indicator = "SH.MED.BEDS.ZS";
-		} else if (type.equals("health")) {
+		} else if (type.equals("Health Expenditure")) {
 			indicator = "SH.XPD.CHEX.PC.CD";
 		}
 		
@@ -52,6 +52,5 @@ public class RatioHospitalAndHealthExpenditure {
 	}
 	
 	private void computeRatio() {
-		
 	}
 }

@@ -25,7 +25,7 @@ public class AverageForestArea {
 		String endYear = selection.getEndYear();
 		
 		//Creating URL
-		String forestURL = createURL("forest", country, startYear, endYear);
+		String forestURL = createURL("Forest Area", country, startYear, endYear);
 	
 		
 		//reader call for analysis type

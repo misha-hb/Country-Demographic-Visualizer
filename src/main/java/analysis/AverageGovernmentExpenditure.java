@@ -24,7 +24,7 @@ public class AverageGovernmentExpenditure {
 		String endYear = selection.getEndYear();
 		
 		//Creating URL
-		String governmentURL = createURL("government", country, startYear, endYear);
+		String governmentURL = createURL("Government Expenditure", country, startYear, endYear);
 	
 		
 		//reader call for analysis type

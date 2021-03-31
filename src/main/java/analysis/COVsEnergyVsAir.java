@@ -25,9 +25,9 @@ public class COVsEnergyVsAir extends Analysis{
 		String endYear = selection.getEndYear();
 		
 		//Creating each URL per analysis Type
-		String carbonURL = createURL("carbon", country, startYear, endYear);
-		String energyURL = createURL("energy", country, startYear, endYear);
-		String airURL = createURL("air", country, startYear, endYear);
+		String carbonURL = createURL("Carbon Emissions", country, startYear, endYear);
+		String energyURL = createURL("Energy Use", country, startYear, endYear);
+		String airURL = createURL("Air Pollution", country, startYear, endYear);
 		
 		//Three separate reader calls per analysis type
 		Data carbonData = reader.retrieveData(carbonURL,analysisType);
@@ -44,11 +44,11 @@ public class COVsEnergyVsAir extends Analysis{
 	private String createURL(String type, String country, String startYear, String endYear) {
 		String indicator = "";
 		
-		if (type.equals("carbon")) {
+		if (type.equals("Carbon Emissions")) {
 			indicator = "EN.ATM.CO2E.PC";
-		} else if (type.equals("energy")) {
+		} else if (type.equals("Energy Use")) {
 			indicator = "EG.USE.PCAP.KG.OE";
-		} else if (type.equals("air")) {
+		} else if (type.equals("Air Pollution")) {
 			indicator  = "EN.ATM.PM25.MC.M3";	
 		}
 		

@@ -24,8 +24,8 @@ public class AirPollutionVsForestArea {
 		String endYear = selection.getEndYear();
 		
 		//Creating each URL per analysis Type
-		String airURL = createURL("air", country, startYear, endYear);
-		String forestURL = createURL("forest", country, startYear, endYear);
+		String airURL = createURL("Air Pollution", country, startYear, endYear);
+		String forestURL = createURL("Forest Area", country, startYear, endYear);
 		
 		//Three separate reader calls per analysis type
 		Data airData = reader.retrieveData(airURL,analysisType);
@@ -41,9 +41,9 @@ public class AirPollutionVsForestArea {
 	private String createURL(String type, String country, String startYear, String endYear) {
 		String indicator = "";
 		
-		if (type.equals("air")) {
+		if (type.equals("Air Pollution")) {
 			indicator = "EN.ATM.PM25.MC.M3";
-		} else if (type.equals("forest")) {
+		} else if (type.equals("Forest Area")) {
 			indicator = "AG.LND.FRST.ZS";	
 		}
 		

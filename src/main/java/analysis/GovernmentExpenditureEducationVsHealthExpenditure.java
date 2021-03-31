@@ -25,17 +25,17 @@ private Reader reader;
 		String endYear = selection.getEndYear();
 		
 		//Creating each URL per analysis Type
-		String governmentEducationURL = createURL("government education", country, startYear, endYear);
-		String totalHealthURL = createURL("total health", country, startYear, endYear);
+		String governmentEducationURL = createURL("Government Expenditure on Education", country, startYear, endYear);
+		String healthURL = createURL("Health Expenditure", country, startYear, endYear);
 		
 		
 		//Three separate reader calls per analysis type
 		Data governmentEducationData = reader.retrieveData(governmentEducationURL,analysisType);
-		Data totalHealthData = reader.retrieveData(totalHealthURL,analysisType);
+		Data healthData = reader.retrieveData(healthURL,analysisType);
 		
 		
 		dataList.add(governmentEducationData);
-		dataList.add(totalHealthData);
+		dataList.add(healthData);
 		
 		return null;
 	}
@@ -43,13 +43,11 @@ private Reader reader;
 	private String createURL(String type, String country, String startYear, String endYear) {
 		String indicator = "";
 		
-		if (type.equals("carbon")) {
-			indicator = "EN.ATM.CO2E.PC";
-		} else if (type.equals("energy")) {
-			indicator = "EG.USE.PCAP.KG.OE";
-		} else if (type.equals("air")) {
-			indicator  = "EN.ATM.PM25.MC.M3";	
-		}
+		if (type.equals("Government Expenditure on Education")) {
+			indicator = "SE.XPD.TOTL.GD.ZS";
+		} else if (type.equals("Health Expenditure")) {
+			indicator = "SH.XPD.CHEX.PC.CD";
+		
 		
 		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", country, indicator, startYear, endYear);
 		
