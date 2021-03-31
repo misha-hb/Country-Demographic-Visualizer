@@ -5,50 +5,29 @@ import java.util.List;
 
 public class RatioHospitalAndHealthExpenditure extends Analysis {
 	private Reader reader;
+	private String hospitalBedsString = "Government expenditure on education, total";
+	private String healthString = "Current health expenditure";
+
 	
 	public RatioHospitalAndHealthExpenditure() {
 		Reader reader = new Reader();
 	}
 	
 	public Result calculate(Selection selection) {
+		
+		Data hospitalBedsData = readData(hospitalBedsString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(healthString, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+
 		return null;
 	}
 	
-	public Data readData(Selection selection) {
-		List<Data> dataList = new ArrayList<Data>();
+	public Data readData(String dataType, String country, String startYear, String endYear) {
+
+		String URL = createURL(dataType, country, startYear, endYear);
 		
-		//Collect data from selection
-		String analysisType = selection.getAnalysisType();
-		String country = selection.getCountry();
-		String startYear = selection.getStartYear();
-		String endYear = selection.getEndYear();
-		
-		//Creating each URL per analysis Type
-		String hospitalBedsURL = createURL("Hospital Beds", country, startYear, endYear);
-		String healthURL = createURL("Health Expenditure", country, startYear, endYear);
-		
-		//Three separate reader calls per analysis type
-		Data hospitalBedsData = reader.retrieveData(hospitalBedsURL,analysisType);
-		Data healthData = reader.retrieveData(healthURL,analysisType);
-		
-		dataList.add(hospitalBedsData);
-		dataList.add(healthData);
-		
-		return null;
-	}
-	
-	private String createURL(String type, String country, String startYear, String endYear) {
-		String indicator = "";
-		
-		if (type.equals("Hospital Beds")) {
-			indicator = "SH.MED.BEDS.ZS";
-		} else if (type.equals("Health Expenditure")) {
-			indicator = "SH.XPD.CHEX.PC.CD";
-		}
-		
-		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", country, indicator, startYear, endYear);
-		
-		return urlString;
+		Data dataObj = reader.retrieveData(URL, dataType);
+
+		return dataObj;
 	}
 	
 	private void computeRatio() {

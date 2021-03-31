@@ -10,19 +10,13 @@ public abstract class Analysis {
 		reader = new Reader();
 	}
 	
-	public Result calculate(Selection selection) {
-		return null;
-	}
+	public abstract Result calculate();
 	
-	public Data readData(Selection selection) {
-		String analysisType = selection.getAnalysisType();
-		String country = selection.getCountry();
-		String startYear = selection.getStartYear();
-		String endYear = selection.getEndYear();
+	public Data readData(String dataType, String country, String startYear, String endYear) {
 		
-		String url = createURL(analysisType, country, startYear, endYear);
+		String url = createURL(dataType, country, startYear, endYear);
 		
-		return reader.retrieveData(url,analysisType);
+		return reader.retrieveData(url,dataType);
 	}
 	
 	protected String createURL(String type, String country, String startYear, String endYear) {

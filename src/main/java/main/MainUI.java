@@ -100,7 +100,7 @@ public class MainUI extends JFrame {
 		north.add(to);
 		north.add(toList);
 
-		// Set bottom bar
+		// Recalculate Button
 		JButton recalculate = new JButton("Recalculate");
 		recalculate.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +120,7 @@ public class MainUI extends JFrame {
 		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
 		final String view = (String)viewsList.getSelectedItem();
 		
+		// Add Viewer
 		JButton addView = new JButton("+");
 		addView.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +128,7 @@ public class MainUI extends JFrame {
 				add.triggerAdd(selection, view);
 			}
 		});
-		
+		// Remove Viewer
 		JButton removeView = new JButton("-");
 		removeView.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
