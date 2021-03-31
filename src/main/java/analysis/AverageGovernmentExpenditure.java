@@ -2,7 +2,7 @@ package analysis;
 
 import java.util.ArrayList;
 import java.util.List;
-//Average of Government expenditure on education, total (% of GDP) for the selected years
+//The average of Government expenditure on education, total (% of GDP) for the selected years
 public class AverageGovernmentExpenditure {
 	private Reader reader;
 	
