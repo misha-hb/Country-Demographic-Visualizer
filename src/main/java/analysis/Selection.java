@@ -1,6 +1,7 @@
 package analysis;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,11 +78,23 @@ public class Selection {
     return endYear;
   }
 
-  private boolean validateCountry(String country) {
-    // open country exclusion file and validate country
-    // return true if valid
-	  return false;
-  }
+  private boolean validateCountry(String country) throws IOException {
+      // open country exclusion file and validate country
+      // return true if valid
+  	  Reader file = new Reader();
+  	  String [] analysisKind = file.readFile("CountryExclusionFile.txt");
+  	  String [] countries;
+  	  for (int i = 0; i < analysisKind.length; i++) {
+  		  if (analysisKind[i].toLowerCase().compareTo(analysisType) == 0) {
+  			  countries = analysisKind[i].split(":");
+  			  for (int m = 0; m < countries.length; m++) {
+  				  if (countries[m].toLowerCase().compareTo(country) == 0)
+  					  return false;
+  			  }
+  		  }		  
+  	  }
+  	  return true;
+    }
   
   private boolean validatePeriod(int startYear, int endYear) {
 	  return false;
