@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import analysis.Reader;
+
 public class LoginServer {
   
   private static LoginServer instanceServer;
@@ -23,8 +25,9 @@ public class LoginServer {
 	  	// open credentials database and verify username and password
 		
 		//only the password is case sensitive  
-		usr = usr.toLowerCase();  
-		String[] fileArray = readFile("credentialsdatabase.txt");
+		usr = usr.toLowerCase();
+		Reader file = new Reader();
+		String[] fileArray = file.readFile("credentialsdatabase.txt");
 		for (int i = 0; i < fileArray.length; i++) {
 			if (fileArray[i].compareTo(usr) == 0 && fileArray[i+1].compareTo(pwd) == 0)
 				return true;
@@ -37,7 +40,7 @@ public class LoginServer {
    * @param file to be read (country exclusion file / credentials database file)
    * @return array with contents of country exclusion file/credentials database read
    */
-  public String[] readFile(String file) throws IOException {
+  /**public String[] readFile(String file) throws IOException {
 	  String [] databaseArray = new String [1];
 	  try {  
 		  	BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -52,5 +55,5 @@ public class LoginServer {
 		
 		finally {
 		}
-  }
+  }**/
 }

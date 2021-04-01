@@ -1,5 +1,7 @@
 package analysis;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -52,4 +54,25 @@ public class Reader {
 		
 		return null;
 	}
+	
+	/**
+	   * @param file to be read (country exclusion file / credentials database file)
+	   * @return array with contents of country exclusion file/credentials database read
+	   */
+	  public String[] readFile(String file) throws IOException {
+		  String [] databaseArray = new String [1];
+		  try {  
+			  	BufferedReader reader = new BufferedReader(new FileReader(file));
+			  	String readLine = reader.readLine();
+		    	while (readLine != null) {
+		    		databaseArray = readLine.split(";");
+		    		readLine = reader.readLine();
+		    	}
+		    	reader.close();
+		  	    return databaseArray;
+		    }
+			
+			finally {
+			}
+	  }
 }
