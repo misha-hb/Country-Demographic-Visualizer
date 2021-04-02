@@ -11,27 +11,13 @@ public class Selection {
   private List<String> viewers;
   
   
-  //public Selection() {
-	  //this.analysisType = null;
-	  //this.country = null;
-	  //this.startYear = null;
-	  //this.endYear = null;
-	  //this.viewers = null;
-  //}
-  public Selection(String analysisType, String country, String startYear, String endYear, List<String> viewers) {
-	  this.analysisType = analysisType;
-	  this.country = country;
-	  this.startYear = startYear;
-	  this.endYear = endYear;
-	  this.viewers = viewers;
-  }
-  
-  public Selection(String analysisType, String country, String startYear, String endYear) {
-	  this.analysisType = analysisType;
-	  this.country = country;
-	  this.startYear = startYear;
-	  this.endYear = endYear;
-	  this.viewers = new ArrayList<String>();
+  public Selection() {
+	  this.analysisType = null;
+	  this.country = null;
+	  this.startYear = null;
+	  this.endYear = null;
+	  this.viewers = null;
+
   }
   
   public void setAnalysisType(String selectedType) {
@@ -98,6 +84,12 @@ public class Selection {
   
   private boolean validatePeriod(int startYear, int endYear) {
 	  return false;
+  }
+  
+  private boolean validateViewer(String viewer) {
+
+	  //if (this.analysisType.contentEquals("AirPollutionVsForestArea")) {  
+	  //else if((this.analysisType.contentEquals("AirPollutionVsForestArea"))
   }
 
 

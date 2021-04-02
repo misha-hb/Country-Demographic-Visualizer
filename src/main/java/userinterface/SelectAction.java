@@ -27,7 +27,6 @@ public class SelectAction implements java.awt.event.ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		try {
-		
 			switch (type) {
 			case "add" :
 				selection.addViewer(String.valueOf(list.getSelectedItem()));

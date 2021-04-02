@@ -67,7 +67,7 @@ public class MainUI extends JFrame {
 		// Set window title
 		super("Country Statistics");
 		
-		selectionObj = new Selection(null, null, null, null);
+		selectionObj = new Selection();
 		
 		DropDownMenu countryDropDown = new CountryMenu("Choose a country: ", selectionObj);
 		

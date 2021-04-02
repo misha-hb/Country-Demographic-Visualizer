@@ -11,6 +11,7 @@ public class AnalysisServer {
 		AnalysisFactory factory = new AnalysisFactory();
 		Analysis analysisObj = factory.createAnalysis(userSelection);
 		Result resultObj = analysisObj.calculate(userSelection);
+		resultObj.notifyViewers();
 	}
 
 }
