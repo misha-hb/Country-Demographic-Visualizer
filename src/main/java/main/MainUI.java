@@ -51,7 +51,8 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 	
-	private Selection selection = new Selection(null, null, null, null);
+	private Selection selectionObj;
+	
 	
 	public static MainUI getInstance() {
 		if (instance == null)
@@ -60,110 +61,46 @@ public class MainUI extends JFrame {
 		return instance;
 	}
 
+	
 	private MainUI() {
 				
 		// Set window title
 		super("Country Statistics");
 		
-		// Set top bar
-		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
-		Vector<String> countriesNames = new Vector<String>();
-		countriesNames.add("USA");
-		countriesNames.add("Canada");
-		countriesNames.add("France");
-		countriesNames.add("China");
-		countriesNames.add("Brazil");
-		countriesNames.sort(null);
-		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
-		String country = (String)countriesList.getSelectedItem();
-		selection.setCountry(country);
-
-		JLabel from = new JLabel("From");
-		JLabel to = new JLabel("To");
-		Vector<String> years = new Vector<String>();
-		for (int i = 2021; i >= 2010; i--) {
-			years.add("" + i);
-		}
-		JComboBox<String> fromList = new JComboBox<String>(years);
-		JComboBox<String> toList = new JComboBox<String>(years);
-		String start = (String)fromList.getSelectedItem();
-		String end = (String)toList.getSelectedItem();
-		selection.setStartYear(start);
-		selection.setEndYear(end);
+		selectionObj = new Selection(null, null, null, null);
 		
+		DropDownMenu countryDropDown = new CountryMenu("Choose a country: ", selectionObj);
+		
+		//YearsMenu yearsDropDown = new YearsMenu(selectionObj);
+		DropDownMenu startDropDown = new StartYearMenu("From", selectionObj);
+		DropDownMenu endDropDown = new EndYearMenu("To", selectionObj);
 
 		JPanel north = new JPanel();
-		north.add(chooseCountryLabel);
-		north.add(countriesList);
-		north.add(from);
-		north.add(fromList);
-		north.add(to);
-		north.add(toList);
+		north.add(countryDropDown.getLabel());
+		north.add(countryDropDown.getList());
+		north.add(startDropDown.getLabel());
+		north.add(startDropDown.getList());
+		north.add(endDropDown.getLabel());
+		north.add(endDropDown.getList());
 
-		// Recalculate Button
-		JButton recalculate = new JButton("Recalculate");
-		recalculate.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				RecalculateButton rb = new RecalculateButton();
-				rb.triggerRecalculate(selection);
-			}
-		});
-
-		JLabel viewsLabel = new JLabel("Available Views: ");
-
-		Vector<String> viewsNames = new Vector<String>();
-		viewsNames.add("Pie Chart");
-		viewsNames.add("Line Chart");
-		viewsNames.add("Bar Chart");
-		viewsNames.add("Scatter Chart");
-		viewsNames.add("Report");
-		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
-		final String view = (String)viewsList.getSelectedItem();
 		
-		// Add Viewer
-		JButton addView = new JButton("+");
-		addView.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				AddButton add = new AddButton();
-				add.triggerAdd(selection, view);
-			}
-		});
-		// Remove Viewer
-		JButton removeView = new JButton("-");
-		removeView.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				RemoveButton remove = new RemoveButton();
-				remove.triggerRemove(selection, view);
-			}
-		});
-
-
-		JLabel methodLabel = new JLabel("        Choose analysis method: ");
-
-		Vector<String> methodsNames = new Vector<String>();
-		methodsNames.add("Air Pollution vs Forest Area");
-		methodsNames.add("Average Forest Area");
-		methodsNames.add("Average Government Expenditure per Capita");
-		methodsNames.add("CO2 Emissions vs Energy Use vs Air Pollution");
-		methodsNames.add("Government Expenditure on Education vs Current Health Expenditure");
-		methodsNames.add("Current Health Expenditure per Capita vs Mortality Rate");
-		methodsNames.add("Ratio of Hospital Beds and Current Health Expenditure");
-		methodsNames.add("Ratio of CO2 Emissions and GPD per Capita");
-
-		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
+		Button recalculateButton = new RecalculateButton("Recalculate", selectionObj);
 		
-		String method = (String)methodsList.getSelectedItem();
-		selection.setAnalysisType(method);
+		DropDownMenu viewersDropDown = new ViewersMenu("Available Views: ", selectionObj);
+		Button addButton = new AddButton("+", selectionObj, viewersDropDown.getList());
+		Button removeButton = new RemoveButton("-", selectionObj, viewersDropDown.getList());
+
+		DropDownMenu analysisDropDown = new AnalysisMenu("        Choose analysis method: ", selectionObj);
 
 		JPanel south = new JPanel();
-		south.add(viewsLabel);
-		south.add(viewsList);
-		south.add(addView);
-		south.add(removeView);
+		south.add(viewersDropDown.getLabel());
+		south.add(viewersDropDown.getList());
+		south.add(addButton.getButton());
+		south.add(removeButton.getButton());
 
-		south.add(methodLabel);
-		south.add(methodsList);
-		south.add(recalculate);
+		south.add(analysisDropDown.getLabel());
+		south.add(analysisDropDown.getList());
+		south.add(recalculateButton.getButton());
 
 		JPanel east = new JPanel();
 
@@ -178,6 +115,7 @@ public class MainUI extends JFrame {
 		getContentPane().add(west, BorderLayout.WEST);
 	}
 
+	
 	private void createCharts(JPanel west) {
 		createLine(west);
 		createTimeSeries(west);
@@ -188,6 +126,7 @@ public class MainUI extends JFrame {
 
 	}
 
+	
 	private void createReport(JPanel west) {
 		JTextArea report = new JTextArea();
 		report.setEditable(false);
@@ -516,6 +455,11 @@ public class MainUI extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		JFrame frame = MainUI.getInstance();
+		frame.setSize(900, 600);
+		frame.pack();
+		frame.setVisible(true);
+
 	}
 
 }
