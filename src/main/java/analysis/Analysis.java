@@ -65,9 +65,31 @@ public abstract class Analysis {
 		return urlString;
 	}
 	
+	protected double computeAverage(Data data) {
+			
+		double total = 0.0;
+		double average;
+		double curr;
+		
+		List<Double> values = data.getValues();
+		List<Integer> years = data.getYears();
+		
+		Iterator<Double> i1 = values.iterator();
+		
+		while (i1.hasNext()) {
+			curr = i1.next();
+			System.out.println(curr);
+			total += curr;
+		}
+		
+		average = total / years.size();
+		System.out.println(average);
+		return average;
+	}
+	
 	public static void main(String[] args) {
 		
-		Selection selection = new Selection("a", "can", "2005", "2010");
+		Selection selection = new Selection("Average Government Expenditure on Education", "can", "2005", "2010");
 		AnalysisFactory f = new AnalysisFactory();
 		Analysis s = f.createAnalysis(selection);
 		s.calculate(selection);

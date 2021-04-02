@@ -7,12 +7,16 @@ public class Result extends Subject{
 	double average;
 	
 	public Result(List<Data> data, double average) {
-		this.data = data;
+		this.data = data;	
 		this.average = average;
 	}
 	
 	public Result(List<Data> data) {
 		this.data = data;
+	}
+	
+	public Result (double average) {
+		this.average = average;
 	}
 	
 	public void setAverage(double newAverage) {

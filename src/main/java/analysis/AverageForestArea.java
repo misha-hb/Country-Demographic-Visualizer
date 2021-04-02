@@ -1,6 +1,7 @@
 package analysis;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class AverageForestArea extends Analysis {
@@ -13,9 +14,10 @@ public class AverageForestArea extends Analysis {
 		
 		Data forestData = readData(FORESTCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
-		return null;
-	}
-	
-	private void computeAverage(Data data) {
+		double average = computeAverage(forestData);
+		List<Data> data = new ArrayList<Data>();
+		data.add(forestData);
+		Result result = new Result(data, average);
+		return result;
 	}
 }
