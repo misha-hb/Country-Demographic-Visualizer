@@ -67,7 +67,7 @@ public abstract class Analysis {
 	
 	public static void main(String[] args) {
 		
-		Selection selection = new Selection("Average Government Expenditure on Education", "can", "2005", "2010");
+		Selection selection = new Selection("a", "can", "2005", "2010");
 		AnalysisFactory f = new AnalysisFactory();
 		Analysis s = f.createAnalysis(selection);
 		s.calculate(selection);
