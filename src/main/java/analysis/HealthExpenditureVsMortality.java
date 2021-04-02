@@ -3,6 +3,8 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//Health and mortality expenditure
 public class HealthExpenditureVsMortality extends Analysis {
 	
 	public HealthExpenditureVsMortality() {
@@ -19,6 +21,10 @@ public class HealthExpenditureVsMortality extends Analysis {
 		Data healthData = readData(HEALTHPERCAPITACODE, country, startYear, endYear);
 		Data mortalityData = readData(INFANTCODE, country, startYear, endYear);
 		
-		return null;
+		List<Data> dataList = new ArrayList<Data>();
+		dataList.add(healthData);
+		dataList.add(mortalityData);
+		Result result = new Result(dataList);
+		return result;
 	}
 }
