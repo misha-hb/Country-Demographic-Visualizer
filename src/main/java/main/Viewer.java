@@ -1,7 +1,5 @@
 package main;
 
-import org.jfree.chart.ChartPanel;
-
 import analysis.Subject;
 
 public interface Viewer {
