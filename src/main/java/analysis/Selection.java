@@ -38,7 +38,7 @@ public class Selection {
     analysisType = selectedType;
   }
   
-  public void setCountry(String selectedCountry) {
+  public void setCountry(String selectedCountry) throws IOException {
     if (validateCountry(selectedCountry))
     	country = selectedCountry;
   }
