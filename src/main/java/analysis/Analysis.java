@@ -52,23 +52,9 @@ public abstract class Analysis {
 		
 		String url = createURL(dataType, country, startYear, endYear);
 		
-		
-		
 		Data d = reader.retrieveData(url,dataType);
 		
-		List<Double> l = d.getValues();
-		List<Integer> l2 = d.getYears();
-		
-		Iterator<Double> i1 = l.iterator();
-		Iterator<Integer> i2 = l2.iterator();
-		
-		while (i1.hasNext()) {
-			System.out.println(i1.next());
-			System.out.println(i2.next());
-		}
-		
 		return d;
-		
 	}
 	
 	protected String createURL(String type, String country, String startYear, String endYear) {
@@ -81,7 +67,7 @@ public abstract class Analysis {
 	
 	public static void main(String[] args) {
 		
-		Selection selection = new Selection("CO2 Emissions vs Energy Use vs Air Pollution", "can", "2000", "2005");
+		Selection selection = new Selection("Average Government Expenditure on Education", "can", "2005", "2010");
 		AnalysisFactory f = new AnalysisFactory();
 		Analysis s = f.createAnalysis(selection);
 		s.calculate(selection);

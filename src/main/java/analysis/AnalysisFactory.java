@@ -14,7 +14,7 @@ public class AnalysisFactory {
 			analysisObj = new RatioOfCarbonAndGPD();
 		else if (type.contentEquals("Average Forest Area"))
 			analysisObj = new AverageForestArea();
-		else if (type.contentEquals("Average Government Expenditure per Capita"))
+		else if (type.contentEquals("Average Government Expenditure on Education"))
 			analysisObj = new AverageGovernmentExpenditure();
 		else if (type.contentEquals("Ratio of Hospital Beds and Current Health Expenditure"))
 			analysisObj = new RatioHospitalAndHealthExpenditure();

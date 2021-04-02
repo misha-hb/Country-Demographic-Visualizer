@@ -15,6 +15,13 @@ public class AirPollutionVsForestArea extends Analysis{
 		Data airData = readData(AIRCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		Data forestData = readData(FORESTCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
-		return null;
+		List<Data> dataList = new ArrayList<Data>();
+		
+		dataList.add(airData);
+		dataList.add(forestData);
+		
+		Result result = new Result(dataList);
+		
+		return result;
 	}
 }
