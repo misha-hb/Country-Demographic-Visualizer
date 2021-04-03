@@ -17,7 +17,7 @@ public class AnalysisServer {
 			resultObj.notifyViewers();
 		else {
 			MainUI ui = MainUI.getInstance();
-			ui.displayError("Data cannot be retrieved");
+			ui.displayError("Cannot fetch data");
 		}
 	}
 
