@@ -17,7 +17,7 @@ public class AverageForestArea extends Analysis {
 		double average = computeAverage(forestData);
 		List<Data> data = new ArrayList<Data>();
 		data.add(forestData);
-		Result result = new Result(data, average);
+		Result result = new Result("Average Forest Area", data, average);
 		return result;
 	}
 }

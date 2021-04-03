@@ -9,7 +9,6 @@ public class HealthExpenditureVsMortality extends Analysis {
 	
 	public HealthExpenditureVsMortality() {
 		super();
-		
 	}
 	
 	public Result calculate(Selection selection) {
@@ -24,7 +23,7 @@ public class HealthExpenditureVsMortality extends Analysis {
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(healthData);
 		dataList.add(mortalityData);
-		Result result = new Result(dataList);
+		Result result = new Result("Current Health Expenditure per Capita vs Mortality Rate", dataList);
 		return result;
 	}
 }

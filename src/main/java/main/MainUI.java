@@ -14,9 +14,11 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.WindowConstants;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -126,31 +128,6 @@ public class MainUI extends JFrame {
 
 	}
 
-	
-	private void createReport(JPanel west) {
-		JTextArea report = new JTextArea();
-		report.setEditable(false);
-		report.setPreferredSize(new Dimension(400, 300));
-		report.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		report.setBackground(Color.white);
-		String reportMessage, reportMessage2;
-
-		reportMessage = "Mortality vs Expenses & Hospital Beds\n" + "==============================\n" + "Year 2018:\n"
-				+ "\tMortality/1000 births => 5.6\n" + "\tHealth Expenditure per Capita => 10624\n"
-				+ "\tHospital Beds/1000 people => 2.92\n" + "\n" + "Year 2017:\n" + "\tMortality/1000 births => 5.7\n"
-				+ "\tHealth Expenditure per Capita => 10209\n" + "\tHospital Beds/1000 people => 2.87\n" + "\n"
-				+ "Year 2016:\n" + "\tMortality/1000 births => 5.8\n" + "\tHealth Expenditure per Capita => 9877\n"
-				+ "\tHospital Beds/1000 people => 2.77\n";
-
-		reportMessage2 = "Unemployment: Mev vs Women\n" + "==========================\n" + "Men=>\n"
-				+ "\tEmployed: 96.054%\n" + "\tUnemployed: 3.946%\n" + "\n" + "Women=>\n" + "\tEmployed: 96.163%\n"
-				+ "\tUnemployed: 3.837%\n";
-
-		report.setText(reportMessage);
-		JScrollPane outputScrollPane = new JScrollPane(report);
-		west.add(outputScrollPane);
-	}
-
 	private void createScatter(JPanel west) {
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
@@ -217,6 +194,32 @@ public class MainUI extends JFrame {
 		chartPanel.setBackground(Color.white);
 		west.add(chartPanel);
 	}
+	
+	private void createReport(JPanel west) {
+		JTextArea report = new JTextArea();
+		report.setEditable(false);
+		report.setPreferredSize(new Dimension(400, 300));
+		report.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		report.setBackground(Color.white);
+		String reportMessage, reportMessage2;
+
+		reportMessage = "Mortality vs Expenses & Hospital Beds\n" + "==============================\n" + "Year 2018:\n"
+				+ "\tMortality/1000 births => 5.6\n" + "\tHealth Expenditure per Capita => 10624\n"
+				+ "\tHospital Beds/1000 people => 2.92\n" + "\n" + "Year 2017:\n" + "\tMortality/1000 births => 5.7\n"
+				+ "\tHealth Expenditure per Capita => 10209\n" + "\tHospital Beds/1000 people => 2.87\n" + "\n"
+				+ "Year 2016:\n" + "\tMortality/1000 births => 5.8\n" + "\tHealth Expenditure per Capita => 9877\n"
+				+ "\tHospital Beds/1000 people => 2.77\n";
+
+		reportMessage2 = "Unemployment: Mev vs Women\n" + "==========================\n" + "Men=>\n"
+				+ "\tEmployed: 96.054%\n" + "\tUnemployed: 3.946%\n" + "\n" + "Women=>\n" + "\tEmployed: 96.163%\n"
+				+ "\tUnemployed: 3.837%\n";
+
+		report.setText(reportMessage);
+		JScrollPane outputScrollPane = new JScrollPane(report);
+		west.add(outputScrollPane);
+	}
+
+
 
 	private void createPie(JPanel west) {
 		// Different way to create pie chart
@@ -452,6 +455,12 @@ public class MainUI extends JFrame {
 		chartPanel.setBackground(Color.white);
 		west.add(chartPanel);
 
+	}
+	
+	public void displayError(String msg) {
+    	javax.swing.JFrame errorWindow = new javax.swing.JFrame();
+    	JOptionPane.showMessageDialog(errorWindow, msg);
+    	errorWindow.dispose();
 	}
 
 	public static void main(String[] args) {

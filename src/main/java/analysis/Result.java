@@ -3,20 +3,28 @@ package analysis;
 import java.util.List;
 
 public class Result extends Subject{
-	List<Data> data;
-	double average;
 	
-	public Result(List<Data> data, double average) {
+	private String name;
+	private List<Data> data;
+	private double average;
+	
+	public Result(String name, List<Data> data, double average) {
+		this.name = name;
 		this.data = data;
 		this.average = average;
 	}
 	
-	public Result(List<Data> data) {
+	public Result(String name, List<Data> data) {
+		this.name = name;
 		this.data = data;
 	}
 	
 	public void setAverage(double newAverage) {
 		average = newAverage;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 	public double getAverage() {

@@ -2,70 +2,91 @@ package analysis;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+
+import main.MainUI;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Selection {
   
   private String analysisType, country, startYear, endYear;
   private List<String> viewers;
   
-  
   public Selection() {
 	  this.analysisType = null;
 	  this.country = null;
 	  this.startYear = null;
 	  this.endYear = null;
-	  this.viewers = null;
-
+	  this.viewers = new ArrayList<String>();
   }
   
   public void setAnalysisType(String selectedType) {
-    analysisType = selectedType;
+	  analysisType = selectedType;
+	  System.out.println(String.format("Selected analysis \"%s\"", selectedType));
   }
   
   public void setCountry(String selectedCountry) throws IOException {
-    if (validateCountry(selectedCountry))
-    	country = selectedCountry;
+	  if (validateCountry(selectedCountry)) {
+		  country = selectedCountry;
+		  System.out.println(String.format("Selected country \"%s\"", selectedCountry));
+	  }
   }
   
 
   public void setStartYear(String selectedYear) {
-    startYear = selectedYear;
+	  startYear = selectedYear;
+	  System.out.println(String.format("Selected start year \"%s\"", selectedYear));
   }
   
-
   public void setEndYear(String selectedYear) {
-    endYear = selectedYear;
+	  endYear = selectedYear;
+	  System.out.println(String.format("Selected end year \"%s\"", selectedYear));
   }
   
   public void addViewer(String selectedViewer) {
-    viewers.add(selectedViewer);
+	  if(validateViewerAddition(selectedViewer)) {
+		  viewers.add(selectedViewer);
+		  System.out.println(String.format("Added viewer \"%s\"", selectedViewer));
+	  }
   }
   
   public void removeViewer(String selectedViewer) {
-    viewers.remove(selectedViewer);
+	  if(validateViewerRemoval(selectedViewer)) {
+		  viewers.remove(selectedViewer);
+		  System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
+
+	  }
   }
   
   public String getAnalysisType() {
-    return analysisType;
+	  return analysisType;
   }
 
   public String getCountry() {
-  return country;
+	  return country;
   }
 
 
   public String getStartYear() {
-    return startYear;
+	  return startYear;
   }
 
   public String getEndYear() {
-    return endYear;
+	  return endYear;
   }
 
   private boolean validateCountry(String country) throws IOException {
-	// open country exclusion file and validate country
+	  
+	  // check if analysis is chosen
+	  if (analysisType == null) {
+		  MainUI ui = MainUI.getInstance();
+		  ui.displayError("Analysis must be chosen first");
+		  return false;
+	  }
+	  
+	  // open country exclusion file and validate country
       // return true if valid
   	  country = country.toLowerCase();
 	  Reader file = new Reader();
@@ -75,8 +96,10 @@ public class Selection {
   		  if (fileCountries.get(i)[0].toLowerCase().compareTo(analysisType.toLowerCase()) == 0) {
   			  countries = fileCountries.get(i)[1].split(",");
   			  for (int m = 0; m < countries.length; m++) {
-  				  if (countries[m].toLowerCase().compareTo(country) == 0)
-  					  return false;
+  				  if (countries[m].toLowerCase().compareTo(country) == 0) {
+  					  MainUI ui = MainUI.getInstance();
+  					  ui.displayError("This country is incompatible with the chosen analysis");
+  					  return false;}
   			  }
   		  }		  
   	  }
@@ -92,10 +115,37 @@ public class Selection {
 	  String singleDataAnalysis1 = "Average Forest Area";
 	  String singleDataAnalysis2 = "Average Government Expenditure on Education";
 	  
-	  if (!this.analysisType.contentEquals(singleDataAnalysis1) && !this.analysisType.contentEquals(singleDataAnalysis2)) {
-		  if (viewer.contentEquals("Pie Chart")) return false;
+	  if (analysisType == null) {
+		  MainUI UI = MainUI.getInstance();
+		  UI.displayError("Analysis must be chosen first");
+		  return false;
+	  }
+		  
+	  if (!analysisType.contentEquals(singleDataAnalysis1) && !analysisType.contentEquals(singleDataAnalysis2)) {
+		  if (viewer.contentEquals("Pie Chart")) {
+			  MainUI ui = MainUI.getInstance();
+			  ui.displayError("This viewer is incompatible with the selected analysis");
+			  return false;
+		  }
 	  }
 	  return true;
   }
-
+  
+  private boolean validateViewerRemoval(String viewer) {
+	  
+	  if(viewers == null) return false;
+	 
+	  String currentViewer;
+	  Iterator<String> vlist = viewers.iterator();
+	  
+	  while (vlist.hasNext()) {
+		  currentViewer = vlist.next();
+		  if (currentViewer.contentEquals(viewer))
+			  return true;
+	  }
+	  MainUI ui = MainUI.getInstance();
+	  ui.displayError("Cannot remove viewer");
+	  return false;
+  }
+  
 }

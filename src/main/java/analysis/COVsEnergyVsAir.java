@@ -21,7 +21,7 @@ public class COVsEnergyVsAir extends Analysis{
 		dataList.add(energyData);
 		dataList.add(airData);
 		
-		Result result = new Result(dataList);
+		Result result = new Result("CO2 Emissions vs Energy Use vs Air Pollution", dataList);
 		
 		return result;
 	}

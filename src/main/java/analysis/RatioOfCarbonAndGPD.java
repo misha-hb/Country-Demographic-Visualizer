@@ -22,7 +22,7 @@ public class RatioOfCarbonAndGPD extends Analysis {
 		
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(ratioData);
-		Result result = new Result(dataList);
+		Result result = new Result("Ratio of CO2 Emissions and GPD per Capita", dataList);
 		return result;
 	}
 	

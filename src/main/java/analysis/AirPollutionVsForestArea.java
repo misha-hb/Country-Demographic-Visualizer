@@ -20,7 +20,7 @@ public class AirPollutionVsForestArea extends Analysis{
 		dataList.add(airData);
 		dataList.add(forestData);
 		
-		Result result = new Result(dataList);
+		Result result = new Result("Air Pollution vs Forest Area", dataList);
 		
 		return result;
 	}
