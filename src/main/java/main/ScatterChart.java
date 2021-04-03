@@ -40,38 +40,6 @@ public class ScatterChart implements Viewer {
 
 	public void drawViewer() {
 
-		XYPlot plot = new XYPlot();
-		XYItemRenderer itemrenderer1 = new XYLineAndShapeRenderer(false, true);
-		XYItemRenderer itemrenderer2 = new XYLineAndShapeRenderer(false, true);
-
-		List<Data> data = result.getData();
-		for (Data d : data) {
-			TimeSeries series = new TimeSeries(d.getType());
-			for (int i = 0; i < data.size(); i++)
-				series.add(new Year(d.getYears().get(i)), d.getValues().get(i));
-			TimeSeriesCollection dataset = new TimeSeriesCollection();
-			dataset.addSeries(series);
-			
-			DateAxis domainAxis = new DateAxis("Year");
-			plot.setDomainAxis(domainAxis);
-			plot.setRangeAxis(new NumberAxis("default"));
-
-			plot.setDataset(0, dataset);
-			plot.setRenderer(0, itemrenderer1);
-			
-			plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
-			plot.mapDatasetToRangeAxis(1, 1); // 2nd dataset to 2nd y-axis
-
-		}
-
-		JFreeChart scatterChart = new JFreeChart(result.getName(),
-				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
-
-		ChartPanel chartPanel = new ChartPanel(scatterChart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);
-
 	}
 	
 }
