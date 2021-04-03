@@ -6,7 +6,7 @@ import analysis.Subject;
 public class BarChart implements Viewer{
 	private Result result;
 
-	private BarChart(Result subject) {
+	public BarChart(Result subject) {
 		this.result = subject;
 		subject.attach(this);
 	}
