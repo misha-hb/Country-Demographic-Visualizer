@@ -39,7 +39,7 @@ public class ScatterChart implements Viewer {
 	}
 
 	public void drawViewer() {
-
+		
 	}
 	
 }
