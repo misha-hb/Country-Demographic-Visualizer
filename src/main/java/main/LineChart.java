@@ -6,7 +6,7 @@ import analysis.Subject;
 public class LineChart implements Viewer {
 	private Result result;
 
-	private LineChart(Result subject) {
+	public LineChart(Result subject) {
 		this.result = subject;
 		subject.attach(this);
 	}

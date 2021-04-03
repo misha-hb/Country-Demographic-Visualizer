@@ -6,7 +6,7 @@ import analysis.Subject;
 public class Report implements Viewer {
 	private Result result;
 
-	private Report(Result subject) {
+	public Report(Result subject) {
 		this.result = subject;
 		subject.attach(this);
 	}
