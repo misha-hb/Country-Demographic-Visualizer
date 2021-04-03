@@ -16,11 +16,13 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 		Data hospitalBedsData = readData(BEDSCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		Data healthData = readData(HEALTHPERCAPITACODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
+		if (hospitalBedsData == null || healthData == null) return null;
+
 		Data ratioData = computeRatio(hospitalBedsData, healthData);
 		
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(ratioData);
-		Result result = new Result(dataList);
+		Result result = new Result("Ratio of Hospital Beds and Current Health Expenditure", dataList);
 		return result;
 	}
 	

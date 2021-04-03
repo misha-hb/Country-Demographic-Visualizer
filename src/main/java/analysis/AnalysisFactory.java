@@ -6,9 +6,9 @@ public class AnalysisFactory {
 		Analysis analysisObj;
 		String type = selection.getAnalysisType();
 		
-		if (type.contentEquals("CO2 Emissions vs Energy Use vs Air Pollution"))
+		if (type.contentEquals("CO2 Emissions vs Energy Use vs PM2.5 Air Pollution"))
 			analysisObj = new COVsEnergyVsAir();
-		else if (type.contentEquals("Air Pollution vs Forest Area"))
+		else if (type.contentEquals("PM2.5 Air Pollution vs Forest Area"))
 			analysisObj = new AirPollutionVsForestArea();
 		else if (type.contentEquals("Ratio of CO2 Emissions and GPD per Capita"))
 			analysisObj = new RatioOfCarbonAndGPD();

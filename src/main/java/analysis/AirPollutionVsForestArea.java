@@ -15,12 +15,13 @@ public class AirPollutionVsForestArea extends Analysis{
 		Data airData = readData(AIRCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		Data forestData = readData(FORESTCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
+		if (airData == null || forestData == null) return null;
+
 		List<Data> dataList = new ArrayList<Data>();
-		
 		dataList.add(airData);
 		dataList.add(forestData);
-		
-		Result result = new Result(dataList);
+
+		Result result = new Result("Air Pollution vs Forest Area", dataList);
 		
 		return result;
 		

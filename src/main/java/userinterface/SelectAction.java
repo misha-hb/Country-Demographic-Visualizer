@@ -27,27 +27,21 @@ public class SelectAction implements java.awt.event.ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		try {
-		
 			switch (type) {
 			case "add" :
 				selection.addViewer(String.valueOf(list.getSelectedItem()));
-				System.out.println(String.format("Added viewer \"%s\"", String.valueOf(list.getSelectedItem())));
 				break;
 			case "analysis" :
 				selection.setAnalysisType(String.valueOf(list.getSelectedItem()));
-				System.out.println(String.format("Selected analysis \"%s\"", String.valueOf(list.getSelectedItem())));
 				break;
 			case "country" :
 				selection.setCountry(String.valueOf(list.getSelectedItem()));
-				System.out.println(String.format("Selected country \"%s\"", String.valueOf(list.getSelectedItem())));
 				break;
 			case "end" :
 				selection.setEndYear(String.valueOf(list.getSelectedItem()));
-				System.out.println(String.format("Selected end year \"%s\"", String.valueOf(list.getSelectedItem())));
 				break;
 			case "remove" :
 				selection.removeViewer(String.valueOf(list.getSelectedItem()));
-				System.out.println(String.format("Removed viewer \"%s\"", String.valueOf(list.getSelectedItem())));
 				break;
 			case "recalculate" :
 				AnalysisServer server = new AnalysisServer();
@@ -55,7 +49,6 @@ public class SelectAction implements java.awt.event.ActionListener {
 				break;
 			case "start" :
 				selection.setStartYear(String.valueOf(list.getSelectedItem()));
-				System.out.println(String.format("Selected start year \"%s\"", String.valueOf(list.getSelectedItem())));
 				break;
 			}
 		}

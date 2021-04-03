@@ -1,7 +1,28 @@
 package main;
 
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+
+import org.jfree.data.time.Year;
+
 import analysis.Result;
 import analysis.Subject;
+import analysis.Data;
+
 
 public class ScatterChart implements Viewer {
 	private Result result;
@@ -18,11 +39,7 @@ public class ScatterChart implements Viewer {
 	}
 
 	public void drawViewer() {
-		String type = result.getType();
-		int[] values = result.getValues();
-		int[] years = result.getYears();
-		
 
-		// Draw operation for Scatter Chart
 	}
+	
 }

@@ -15,12 +15,14 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 		Data governmentEducationData = readData(EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		Data healthData = readData(HEALTHCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
+		if (governmentEducationData == null || healthData == null) return null;
+
 		Data ratioData = computeRatio(governmentEducationData, healthData);
 		
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(ratioData);
 		
-		Result result = new Result(dataList);
+		Result result = new Result("Government Expenditure on Education vs Current Health Expenditure", dataList);
 		
 		return result;
 	}

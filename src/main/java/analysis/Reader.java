@@ -50,8 +50,9 @@ public class Reader {
 				}
 			}catch (IOException e) {
 				e.printStackTrace();
+			}catch (IndexOutOfBoundsException e) {
+				return null;
 			}
-		
 		return null;
 	}
 	
@@ -59,17 +60,21 @@ public class Reader {
 	   * @param file to be read (country exclusion file / credentials database file)
 	   * @return array with contents of country exclusion file/credentials database read
 	   */
-	  public String[] readFile(String file) throws IOException {
-		  String [] databaseArray = new String [1];
+	  public List<String[]> readFile(String file) throws IOException {
+		 List<String[]> fileDatabase = new ArrayList<>();
+		  //String [][] databaseArray = new String [21][2];
+		  int lineCount = 0;
 		  try {  
 			  	BufferedReader reader = new BufferedReader(new FileReader(file));
 			  	String readLine = reader.readLine();
 		    	while (readLine != null) {
-		    		databaseArray = readLine.split(";");
+		    		fileDatabase.add(readLine.split(";"));
+		    		//databaseArray[lineCount] = readLine.split(";");
 		    		readLine = reader.readLine();
+		    		lineCount++;
 		    	}
 		    	reader.close();
-		  	    return databaseArray;
+		  	    return fileDatabase;
 		    }
 			
 			finally {

@@ -26,12 +26,10 @@ public class LoginWindow extends javax.swing.JFrame {
         Login proxy = new LoginProxy(username, password);
        
         if (!proxy.authenticate()) {
-        	
         	javax.swing.JFrame errorWindow = new javax.swing.JFrame();
         	errorWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         	JOptionPane.showMessageDialog(errorWindow, "Username or password is incorrect.");
         	errorWindow.dispose();
-
         }
         dispose();
     }
