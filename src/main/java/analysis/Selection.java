@@ -65,14 +65,15 @@ public class Selection {
   }
 
   private boolean validateCountry(String country) throws IOException {
-      // open country exclusion file and validate country
+	// open country exclusion file and validate country
       // return true if valid
-  	  Reader file = new Reader();
-  	  String [] analysisKind = file.readFile("CountryExclusionFile.txt");
+  	  country = country.toLowerCase();
+	  Reader file = new Reader();
+  	  List<String[]> fileCountries = file.readFile("CountryExclusionFile.txt");
   	  String [] countries;
-  	  for (int i = 0; i < analysisKind.length; i++) {
-  		  if (analysisKind[i].toLowerCase().compareTo(analysisType) == 0) {
-  			  countries = analysisKind[i].split(":");
+  	  for (int i = 0; i < fileCountries.size(); i++) {
+  		  if (fileCountries.get(i)[0].toLowerCase().compareTo(analysisType.toLowerCase()) == 0) {
+  			  countries = fileCountries.get(i)[1].split(",");
   			  for (int m = 0; m < countries.length; m++) {
   				  if (countries[m].toLowerCase().compareTo(country) == 0)
   					  return false;
@@ -86,11 +87,15 @@ public class Selection {
 	  return false;
   }
   
-  private boolean validateViewer(String viewer) {
-
-	  //if (this.analysisType.contentEquals("AirPollutionVsForestArea")) {  
-	  //else if((this.analysisType.contentEquals("AirPollutionVsForestArea"))
+  private boolean validateViewerAddition(String viewer) {
+	  
+	  String singleDataAnalysis1 = "Average Forest Area";
+	  String singleDataAnalysis2 = "Average Government Expenditure on Education";
+	  
+	  if (!this.analysisType.contentEquals(singleDataAnalysis1) && !this.analysisType.contentEquals(singleDataAnalysis2)) {
+		  if (viewer.contentEquals("Pie Chart")) return false;
+	  }
+	  return true;
   }
-
 
 }
