@@ -64,6 +64,9 @@ public class MainUI extends JFrame {
 		return instance;
 	}
 
+	public static JPanel getPanel() {
+		return west;
+	}
 	
 	private MainUI() {
 				

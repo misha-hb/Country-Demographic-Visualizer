@@ -1,5 +1,7 @@
 package main;
 
+import javax.swing.JPanel;
+
 import analysis.Subject;
 
 public interface Viewer {
