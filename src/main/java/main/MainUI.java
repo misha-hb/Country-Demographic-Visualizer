@@ -52,6 +52,7 @@ public class MainUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
+	private static JPanel west;
 	
 	private Selection selectionObj;
 	
@@ -107,7 +108,7 @@ public class MainUI extends JFrame {
 		JPanel east = new JPanel();
 
 		// Set charts region
-		JPanel west = new JPanel();
+		west = new JPanel();
 		west.setLayout(new GridLayout(2, 0));
 		createCharts(west);
 
