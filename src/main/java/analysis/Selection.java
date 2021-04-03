@@ -1,6 +1,8 @@
 package analysis;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -109,9 +111,36 @@ public class Selection {
   	  return true;
     }
   
-  private boolean validatePeriod(int startYear, int endYear) {
-	  return false;
+  private boolean validatePeriod(int startYear, int endYear) throws IOException {
+	  if (startYear > endYear)
+		  return false;
+	  int lineCount = 0;
+	  
+	  try {  
+		  	BufferedReader reader = new BufferedReader(new FileReader("CountriesFile.txt"));
+		  	String readLine = reader.readLine();
+	    	while (readLine != null) {
+	    		lineCount++;
+	    		if (lineCount != 1) {
+	    			String [] tmp = readLine.split(",");
+	    			if (tmp[tmp.length-1].compareTo("Now") == 0)
+	    				tmp[tmp.length-1] = "2021";
+	    			if (tmp[1].toLowerCase().compareTo(country.toLowerCase()) == 0) {
+	    				if (startYear < Integer.parseInt(tmp[tmp.length-2]) || endYear > Integer.parseInt(tmp[tmp.length-1])) {
+	    					return false;
+	    				}
+	    			}
+	    		}
+		    	readLine = reader.readLine();
+	    	}
+	    	reader.close();
+	  }
+	  finally {
+		  
+	  }
+	  return true;
   }
+
   
   private boolean validateViewerAddition(String viewer) {
 	  
