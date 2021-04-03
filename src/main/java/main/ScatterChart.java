@@ -40,7 +40,12 @@ public class ScatterChart implements Viewer {
 	}
 
 	public void drawViewer() {
-		JPanel panel = MainUI.getPanel();
+		
+		List<Data> data = result.getData();
+		for (Data d : data) {
+			TimeSeries series = new TimeSeries(d.getType());
+
+		}
 	}
 	
 }
