@@ -3,6 +3,7 @@ package login;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import analysis.Reader;
 
@@ -25,13 +26,14 @@ public class LoginServer {
 	  	// open credentials database and verify username and password
 		
 		//only the password is case sensitive  
-		usr = usr.toLowerCase();
-		Reader file = new Reader();
-		String[] fileArray = file.readFile("CredentialsDatabase.txt");
-		for (int i = 0; i < fileArray.length; i++) {
-			if (fileArray[i].compareTo(usr) == 0 && fileArray[i+1].compareTo(pwd) == 0)
+		usr = usr.toLowerCase();  
+		Reader reader = new Reader();
+		List<String[]> fileArray = reader.readFile("CredentialsDatabase.txt");
+		for (int i = 0; i < fileArray.size(); i++) {
+			if (fileArray.get(i)[0].compareTo(usr) == 0 && fileArray.get(i)[1].compareTo(pwd) == 0)
 				return true;
 		}
+		
 		return false;
 	  }
 		
