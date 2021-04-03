@@ -14,6 +14,8 @@ public class AverageGovernmentExpenditure extends Analysis{
 		
 		Data governmentEducationData = readData(EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
+		if (governmentEducationData == null) return null;
+
 		double average = computeAverage(governmentEducationData);
 		List<Data> data = new ArrayList<Data>();
 		data.add(governmentEducationData);

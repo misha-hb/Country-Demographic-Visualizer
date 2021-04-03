@@ -14,6 +14,8 @@ public class AverageForestArea extends Analysis {
 		
 		Data forestData = readData(FORESTCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
+		if (forestData == null) return null;
+
 		double average = computeAverage(forestData);
 		List<Data> data = new ArrayList<Data>();
 		data.add(forestData);

@@ -50,8 +50,9 @@ public class Reader {
 				}
 			}catch (IOException e) {
 				e.printStackTrace();
+			}catch (IndexOutOfBoundsException e) {
+				return null;
 			}
-		
 		return null;
 	}
 	

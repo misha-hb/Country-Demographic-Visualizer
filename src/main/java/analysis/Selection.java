@@ -19,11 +19,12 @@ public class Selection {
 	  this.country = null;
 	  this.startYear = null;
 	  this.endYear = null;
-	  this.viewers = new ArrayList<String>();
+	  this.viewers = new ArrayList<String>();	// "the list of viewers needs to be initially populated when the system is first run"
   }
   
   public void setAnalysisType(String selectedType) {
 	  analysisType = selectedType;
+	  viewers = new ArrayList<String>();	// empty the current viewers
 	  System.out.println(String.format("Selected analysis \"%s\"", selectedType));
   }
   
@@ -33,7 +34,6 @@ public class Selection {
 		  System.out.println(String.format("Selected country \"%s\"", selectedCountry));
 	  }
   }
-  
 
   public void setStartYear(String selectedYear) {
 	  startYear = selectedYear;
@@ -56,7 +56,6 @@ public class Selection {
 	  if(validateViewerRemoval(selectedViewer)) {
 		  viewers.remove(selectedViewer);
 		  System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
-
 	  }
   }
   
@@ -75,6 +74,10 @@ public class Selection {
 
   public String getEndYear() {
 	  return endYear;
+  }
+  
+  public List<String> getViewers() {
+	  return viewers;
   }
 
   private boolean validateCountry(String country) throws IOException {

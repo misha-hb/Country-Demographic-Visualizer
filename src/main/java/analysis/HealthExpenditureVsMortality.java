@@ -20,6 +20,8 @@ public class HealthExpenditureVsMortality extends Analysis {
 		Data healthData = readData(HEALTHPERCAPITACODE, country, startYear, endYear);
 		Data mortalityData = readData(INFANTCODE, country, startYear, endYear);
 		
+		if (healthData == null || mortalityData == null) return null;
+
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(healthData);
 		dataList.add(mortalityData);

@@ -15,9 +15,12 @@ public class RatioOfCarbonAndGPD extends Analysis {
 	}
 	
 	public Result calculate(Selection selection) {
+		
 		Data carbonData = readData(CARBON, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		Data GDPData = readData(GDP, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
+		if (carbonData == null || carbonData == null) return null;
+
 		Data ratioData = computeRatio(carbonData, GDPData);
 		
 		List<Data> dataList = new ArrayList<Data>();
