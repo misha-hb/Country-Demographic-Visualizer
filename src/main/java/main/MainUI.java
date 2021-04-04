@@ -463,6 +463,7 @@ public class MainUI extends JFrame {
 		west.add(chartPanel);
 
     	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    	//
 
 	}
 	
