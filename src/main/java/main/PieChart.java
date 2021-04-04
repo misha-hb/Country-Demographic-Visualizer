@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -30,6 +31,8 @@ public class PieChart implements Viewer {
 
 	public void drawViewer() {
 		
+		System.out.println("test");
+		
 		double value = this.result.getAverage();
 		
 		DefaultPieDataset dataset = new DefaultPieDataset(); 
@@ -53,5 +56,9 @@ public class PieChart implements Viewer {
 		chartPanel.setBackground(Color.white);
 		
 		MainUI.getPanel().add(chartPanel);
+		JFrame frame = MainUI.getInstance();
+		frame.setSize(900, 600);
+		frame.pack();
+		frame.setVisible(true);
 	}
 }

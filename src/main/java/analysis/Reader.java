@@ -72,6 +72,7 @@ public class Reader {
 				fileDatabase.add(readLine.split(","));
 				//databaseArray[lineCount] = readLine.split(";");
 				lineCount++;
+				readLine = reader.readLine();
 			}
 			reader.close();
 	  	    return fileDatabase;

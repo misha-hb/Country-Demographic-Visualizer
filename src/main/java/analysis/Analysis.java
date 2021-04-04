@@ -52,14 +52,19 @@ public abstract class Analysis {
 	
 	public Data readData(String dataType, String dataCode, String country, String startYear, String endYear) {
 		
+		try {
 		String url = createURL(dataCode, country, startYear, endYear);
 		
 		Data d = reader.retrieveData(url, dataType);
 		
 		return d;
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	protected String createURL(String code, String country, String startYear, String endYear) {
+	protected String createURL(String code, String country, String startYear, String endYear) throws IOException {
 
 		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", getAbbreviation(country), code, startYear, endYear);
 		

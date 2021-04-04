@@ -42,7 +42,7 @@ public class AnalysisServer {
 				}
 			}
 		
-			resultObj.notifyViewers();
+			resultObj.updateViewers();
 		}
 	
 		else {

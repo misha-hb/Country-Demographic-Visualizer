@@ -196,7 +196,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 	}
 	
 	private void createReport(JPanel west) {
@@ -220,7 +220,7 @@ public class MainUI extends JFrame {
 
 		report.setText(reportMessage);
 		JScrollPane outputScrollPane = new JScrollPane(report);
-		west.add(outputScrollPane);
+		//west.add(outputScrollPane);
 	}
 
 
@@ -248,7 +248,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 	}
 
 	private void createBar(JPanel west) {
@@ -320,7 +320,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 	}
 
 	private void createLine(JPanel west) {
@@ -389,7 +389,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 
 	}
 
@@ -457,7 +457,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 
 	}
 	
