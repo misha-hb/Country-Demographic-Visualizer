@@ -9,6 +9,7 @@ import java.util.List;
 import main.MainUI;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Iterator;
 
 public class Selection {
@@ -95,49 +96,39 @@ public class Selection {
       // return true if valid
   	  country = country.toLowerCase();
 	  Reader file = new Reader();
-  	  List<String[]> fileCountries = file.readFile("CountryExclusionFile.txt");
-  	  String [] countries;
-  	  for (int i = 0; i < fileCountries.size(); i++) {
-  		  if (fileCountries.get(i)[0].toLowerCase().compareTo(analysisType.toLowerCase()) == 0) {
-  			  countries = fileCountries.get(i)[1].split(",");
-  			  for (int m = 0; m < countries.length; m++) {
-  				  if (countries[m].toLowerCase().compareTo(country) == 0) {
-  					  MainUI ui = MainUI.getInstance();
-  					  ui.displayError("This country is incompatible with the chosen analysis");
-  					  return false;}
-  			  }
-  		  }		  
-  	  }
-  	  return true;
-    }
+	  List<String[]> fileCountries = file.readFile("CountryExclusionFile.txt");
+		  for (int i = 0; i < fileCountries.size(); i++) {
+			  if (fileCountries.get(i)[0].toLowerCase().compareTo(analysisType.toLowerCase()) == 0) {
+				  for (int j = 0; j < fileCountries.get(i).length; j++) {
+					  if (fileCountries.get(i)[j].toLowerCase().compareTo(country) == 0) {
+						  MainUI ui = MainUI.getInstance();
+						  ui.displayError("This country is incompatible with the chosen analysis");
+						  return false;
+					  }
+				  }
+			  }		  
+		  }
+		  return true;
+	}
   
+  /**
+   * checks if country selected previously is compatible with the selection start and end years
+   * @param startYear
+   * @param endYear
+   * @return true is period is validated
+   * @throws IOException
+   */
   private boolean validatePeriod(int startYear, int endYear) throws IOException {
 	  if (startYear > endYear)
 		  return false;
-	  int lineCount = 0;
 	  
-	  try {  
-		  	BufferedReader reader = new BufferedReader(new FileReader("CountriesFile.txt"));
-		  	String readLine = reader.readLine();
-	    	while (readLine != null) {
-	    		lineCount++;
-	    		if (lineCount != 1) {
-	    			String [] tmp = readLine.split(",");
-	    			if (tmp[tmp.length-1].compareTo("Now") == 0)
-	    				tmp[tmp.length-1] = "2021";
-	    			if (tmp[1].toLowerCase().compareTo(country.toLowerCase()) == 0) {
-	    				if (startYear < Integer.parseInt(tmp[tmp.length-2]) || endYear > Integer.parseInt(tmp[tmp.length-1])) {
-	    					return false;
-	    				}
-	    			}
-	    		}
-		    	readLine = reader.readLine();
-	    	}
-	    	reader.close();
+	  CountryDictionary dict = new CountryDictionary();
+	  Hashtable<String, String[]> yearsDict = dict.getDict();
+	  String [] yearsList = yearsDict.get(country.toLowerCase());
+	  if (startYear < Integer.parseInt(yearsList[1]) || endYear > Integer.parseInt(yearsList[2])) {
+			return false;	  
 	  }
-	  finally {
-		  
-	  }
+	  
 	  return true;
   }
 
