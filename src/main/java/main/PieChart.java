@@ -27,7 +27,7 @@ public class PieChart implements Viewer {
 		if (subject.equals(result)) {
 			drawViewer();
 		}
-	}s
+	}
 
 	public void drawViewer() {
 		
