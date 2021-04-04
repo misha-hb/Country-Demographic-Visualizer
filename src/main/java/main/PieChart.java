@@ -30,8 +30,6 @@ public class PieChart implements Viewer {
 
 	public void drawViewer() {
 		
-		
-		
 		double value = this.result.getAverage();
 		
 		DefaultPieDataset dataset = new DefaultPieDataset(); 
