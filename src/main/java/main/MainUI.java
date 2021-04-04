@@ -119,6 +119,9 @@ public class MainUI extends JFrame {
 		getContentPane().add(east, BorderLayout.EAST);
 		getContentPane().add(south, BorderLayout.SOUTH);
 		getContentPane().add(west, BorderLayout.WEST);
+		
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 	}
 
 	
@@ -459,6 +462,9 @@ public class MainUI extends JFrame {
 		chartPanel.setBackground(Color.white);
 		//west.add(chartPanel);
 
+    	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  
+
 	}
 	
 	public void displayError(String msg) {
@@ -468,11 +474,6 @@ public class MainUI extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
-		frame.pack();
-		frame.setVisible(true);
-
 	}
 
 }

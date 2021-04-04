@@ -109,16 +109,16 @@ public abstract class Analysis {
 	   * @return abbreviation from the countries file for corresponding country
 	   * @throws IOException
 	   */
-	  private String getAbbreviation(String country) throws IOException {
+	  private String getAbbreviation(String country) {
 		  country = country.toLowerCase();
 		  Reader reader = new Reader();
 		  List<String[]> abvList = reader.readFile("CountriesFile.txt");
 		  for (int i = 0; i < abvList.size(); i++) {
 			  if (country.compareTo(abvList.get(i)[1].toLowerCase()) == 0) {
 				  return abvList.get(i)[5];
-				  }
-				}
-		  return "abbreviation not found";
+			  }
 		  }
+		  return null;
+	  }
 }
 
