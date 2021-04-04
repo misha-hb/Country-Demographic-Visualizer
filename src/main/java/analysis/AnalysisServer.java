@@ -25,19 +25,19 @@ public class AnalysisServer {
 			for (String viewer : viewers) {
 				switch (viewer) {
 				case "Pie Chart" :
-					resultObj.attach(new PieChart(resultObj));
+					new PieChart(resultObj);
 					break;
 				case "Bar Chart" :
-					resultObj.attach(new BarChart(resultObj));
+					new BarChart(resultObj);
 					break;
 				case "Line Chart" :
-					resultObj.attach(new LineChart(resultObj));
+					new LineChart(resultObj);
 					break;
 				case "Scatter Chart" :
-					resultObj.attach(new ScatterChart(resultObj));
+					new ScatterChart(resultObj);
 					break;
 				case "Report" :
-					resultObj.attach(new Report(resultObj));
+					new Report(resultObj);
 					break;
 				}
 			}
