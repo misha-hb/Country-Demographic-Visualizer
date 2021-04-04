@@ -19,7 +19,7 @@ public class AverageGovernmentExpenditure extends Analysis{
 		double average = computeAverage(governmentEducationData);
 		List<Data> data = new ArrayList<Data>();
 		data.add(governmentEducationData);
-		Result result = new Result("Average Government Expenditure on Education", data,average);
+		Result result = new Result("Average Government Expenditure on Education", data, average);
 		return result;
 	}
 	

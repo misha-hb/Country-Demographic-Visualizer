@@ -133,7 +133,7 @@ public class Selection {
 	  int validEnd = 0;
 	  
 	  Reader reader = new Reader();
-	  reader.readFile("CountriesFile.txt");
+	  //reader.readFile("CountriesFile.txt");
 	  List<String[]> yearsList = reader.readFile("CountriesFile.txt");
 	  for (int i = 0; i < yearsList.size(); i++) {
 		  if (country.toLowerCase().compareTo(yearsList.get(i)[1].toLowerCase()) == 0) {
@@ -160,22 +160,31 @@ public class Selection {
   
   private boolean validateViewerAddition(String viewer) {
 	  
-	  String singleDataAnalysis1 = "Average Forest Area";
-	  String singleDataAnalysis2 = "Average Government Expenditure on Education";
-	  
+	  String averageDataAnalysis1 = "Average Forest Area";
+	  String averageDataAnalysis2 = "Average Government Expenditure on Education";
+	  	  
 	  if (analysisType == null) {
 		  MainUI UI = MainUI.getInstance();
-		  UI.displayError("Analysis must be chosen first");
+		  UI.displayError("Type of analysis must be chosen first");
 		  return false;
 	  }
 		  
-	  if (!analysisType.contentEquals(singleDataAnalysis1) && !analysisType.contentEquals(singleDataAnalysis2)) {
+	  if (analysisType.contentEquals(averageDataAnalysis1) || analysisType.contentEquals(averageDataAnalysis2)) {
+		  if (!viewer.contentEquals("Pie Chart")) {
+			  MainUI ui = MainUI.getInstance();
+			  ui.displayError("This viewer is incompatible with the selected analysis");
+			  return false;
+		  }
+	  }
+
+	  else {
 		  if (viewer.contentEquals("Pie Chart")) {
 			  MainUI ui = MainUI.getInstance();
 			  ui.displayError("This viewer is incompatible with the selected analysis");
 			  return false;
 		  }
 	  }
+	  
 	  return true;
   }
   

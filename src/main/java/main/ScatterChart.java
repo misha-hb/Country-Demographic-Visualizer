@@ -26,7 +26,9 @@ import analysis.Data;
 
 
 public class ScatterChart implements Viewer {
+	
 	private Result result;
+	
 
 	public ScatterChart(Result subject) {
 		this.result = subject;

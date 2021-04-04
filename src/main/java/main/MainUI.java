@@ -474,6 +474,10 @@ public class MainUI extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		JFrame frame = MainUI.getInstance();
+		frame.setSize(900, 600);
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 }
