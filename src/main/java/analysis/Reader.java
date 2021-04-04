@@ -56,28 +56,29 @@ public class Reader {
 		return null;
 	}
 	
+	
 	/**
-	   * @param file to be read (country exclusion file / credentials database file)
-	   * @return array with contents of country exclusion file/credentials database read
-	   */
-	  public List<String[]> readFile(String file) throws IOException {
-		 List<String[]> fileDatabase = new ArrayList<>();
-		  //String [][] databaseArray = new String [21][2];
-		  int lineCount = 0;
-		  try {  
-			  	BufferedReader reader = new BufferedReader(new FileReader(file));
-			  	String readLine = reader.readLine();
-		    	while (readLine != null) {
-		    		fileDatabase.add(readLine.split(";"));
-		    		//databaseArray[lineCount] = readLine.split(";");
-		    		readLine = reader.readLine();
-		    		lineCount++;
-		    	}
-		    	reader.close();
-		  	    return fileDatabase;
-		    }
-			
-			finally {
+	 * @param file to be read (country exclusion file / credentials database file)
+	 * @return array with contents of country exclusion file/credentials database read
+	 */
+	public List<String[]> readFile(String file) {
+		List<String[]> fileDatabase = new ArrayList<>();
+		//String [][] databaseArray = new String [21][2];
+		int lineCount = 0;
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String readLine = reader.readLine();
+			while (readLine != null) {
+				fileDatabase.add(readLine.split(";"));
+				//databaseArray[lineCount] = readLine.split(";");
+				lineCount++;
 			}
+			reader.close();
+	  	    return fileDatabase;
+	    }
+		catch (IOException e) {}
+		// new exception class to handle IOException?
+
+		return null;
 	  }
 }

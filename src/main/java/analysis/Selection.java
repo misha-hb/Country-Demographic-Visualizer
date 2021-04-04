@@ -39,13 +39,17 @@ public class Selection {
   }
 
   public void setStartYear(String selectedYear) {
-	  startYear = selectedYear;
-	  System.out.println(String.format("Selected start year \"%s\"", selectedYear));
+	  if ((endYear != null && validatePeriod(Integer.parseInt(selectedYear), Integer.parseInt(endYear))) || endYear == null) {
+		  startYear = selectedYear;
+		  System.out.println(String.format("Selected start year \"%s\"", selectedYear));
+	  }
   }
   
   public void setEndYear(String selectedYear) {
-	  endYear = selectedYear;
-	  System.out.println(String.format("Selected end year \"%s\"", selectedYear));
+	  if ((startYear != null && validatePeriod(Integer.parseInt(startYear), Integer.parseInt(selectedYear))) || startYear == null) {
+		  endYear = selectedYear;
+		  System.out.println(String.format("Selected end year \"%s\"", selectedYear));
+	  }
   }
   
   public void addViewer(String selectedViewer) {
@@ -83,12 +87,12 @@ public class Selection {
 	  return viewers;
   }
 
-  private boolean validateCountry(String country) throws IOException {
+  private boolean validateCountry(String country) {
 	  
 	  // check if analysis is chosen
 	  if (analysisType == null) {
 		  MainUI ui = MainUI.getInstance();
-		  ui.displayError("Analysis must be chosen first");
+		  ui.displayError("Analysis type must be chosen first");
 		  return false;
 	  }
 	  
@@ -118,15 +122,20 @@ public class Selection {
    * @return true is period is validated
    * @throws IOException
    */
-  private boolean validatePeriod(int startYear, int endYear) throws IOException {
-	  if (startYear > endYear)
+  private boolean validatePeriod(int startYear, int endYear) {
+	  if (startYear > endYear) {
+		  MainUI ui = MainUI.getInstance();
+		  ui.displayError("The ending year must be greater than the starting year");
 		  return false;
+	  }
 	  
-	  CountryDictionary dict = new CountryDictionary();
+	  CountryDictionary dict = CountryDictionary.getDictionary();
 	  Hashtable<String, String[]> yearsDict = dict.getDict();
 	  String [] yearsList = yearsDict.get(country.toLowerCase());
 	  if (startYear < Integer.parseInt(yearsList[1]) || endYear > Integer.parseInt(yearsList[2])) {
-			return false;	  
+		  MainUI ui = MainUI.getInstance();
+		  ui.displayError("Data cannot be fetched for the chosen years");
+		  return false;	  
 	  }
 	  
 	  return true;
@@ -167,7 +176,7 @@ public class Selection {
 			  return true;
 	  }
 	  MainUI ui = MainUI.getInstance();
-	  ui.displayError("Cannot remove viewer");
+	  ui.displayError("Only previously added viewers can be removed");
 	  return false;
   }
   

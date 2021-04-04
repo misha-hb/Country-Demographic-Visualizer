@@ -60,7 +60,7 @@ public class ScatterChart implements Viewer {
 			
 			plot.setDataset(c, dataset);
 			plot.setRenderer(c, itemrenderer);
-			plot.setRangeAxis(c, new NumberAxis(getAxisLabel(d.getType())));	// CHANGE
+			plot.setRangeAxis(c, new NumberAxis(getAxisLabel(d.getType())));
 			plot.mapDatasetToRangeAxis(c, c);
 
 			c++;

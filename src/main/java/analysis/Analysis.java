@@ -93,24 +93,21 @@ public abstract class Analysis {
 		
 		//Selection selection = new Selection();//new Selection("Average Forest Area", "can", "2000", "2020");
 		//AnalysisFactory f = new AnalysisFactory();
-		//nalysis s = f.createAnalysis(selection);
+		//Analysis s = f.createAnalysis(selection);
 		//s.calculate(selection);
 		
 	//}
 	
-	/**
-	   * @param abbrevation of the country specified
-	   * @return abbreviation from the countries file for corresponding country
-	   * @throws IOException
-	   */
-	  private String getAbbreviation(String country) {
-		  country = country.toLowerCase();
-		  try {
-			  CountryDictionary dict = new CountryDictionary();
-			  Hashtable<String, String[]> abvDict = dict.getDict();
-			  return abvDict.get(country)[0];
-		  }
-		  catch (IOException e) { return null; }
-	  }
 	
+	/**
+	 *  @param abbrevation of the country specified
+	 * @return abbreviation from the countries file for corresponding country
+	 * @throws IOException
+	 */
+	private String getAbbreviation(String country) {
+		country = country.toLowerCase();
+		CountryDictionary dict = CountryDictionary.getDictionary();
+		Hashtable<String, String[]> abvDict = dict.getDict();
+		return abvDict.get(country)[0];
+	}
 }
