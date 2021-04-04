@@ -16,8 +16,8 @@ public class RatioOfCarbonAndGPD extends Analysis {
 	
 	public Result calculate(Selection selection) {
 		
-		Data carbonData = readData(CARBON, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data GDPData = readData(GDP, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data carbonData = readData(CARBON, CARBONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data GDPData = readData(GDP, GDPCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		if (carbonData == null || carbonData == null) return null;
 
@@ -49,7 +49,7 @@ public class RatioOfCarbonAndGPD extends Analysis {
 			
 		}
 		
-		Data newData = new Data(ratioList, d1.getYears());
+		Data newData = new Data("CO2 Emissions / GDP per Capita", ratioList, d1.getYears());
 		return newData;
 	}
 }

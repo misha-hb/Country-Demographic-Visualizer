@@ -18,30 +18,32 @@ public class AnalysisServer {
 	
 		Result resultObj = analysisObj.calculate(userSelection);
 		
-		List<String> viewers = userSelection.getViewers();
-		
-		for (String viewer : viewers) {
-			switch (viewer) {
-			case "Pie Chart" :
-				new PieChart(resultObj);
-				break;
-			case "Bar Chart" :
-				new BarChart(resultObj);
-				break;
-			case "Line Chart" :
-				new LineChart(resultObj);
-				break;
-			case "Scatter Chart" :
-				new ScatterChart(resultObj);
-				break;
-			case "Report" :
-				new Report(resultObj);
-				break;
+		if (resultObj != null) {
+
+			List<String> viewers = userSelection.getViewers();
+			
+			for (String viewer : viewers) {
+				switch (viewer) {
+				case "Pie Chart" :
+					resultObj.attach(new PieChart(resultObj));
+					break;
+				case "Bar Chart" :
+					resultObj.attach(new BarChart(resultObj));
+					break;
+				case "Line Chart" :
+					resultObj.attach(new LineChart(resultObj));
+					break;
+				case "Scatter Chart" :
+					resultObj.attach(new ScatterChart(resultObj));
+					break;
+				case "Report" :
+					resultObj.attach(new Report(resultObj));
+					break;
+				}
 			}
-		}
-	
-		if (resultObj != null)
+		
 			resultObj.notifyViewers();
+		}
 	
 		else {
 			MainUI ui = MainUI.getInstance();

@@ -13,8 +13,8 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 	
 	public Result calculate(Selection selection) {
 		
-		Data hospitalBedsData = readData(BEDSCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data healthData = readData(HEALTHPERCAPITACODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data hospitalBedsData = readData(BEDS, BEDSCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(HEALTHPERCAPITA, HEALTHPERCAPITACODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		if (hospitalBedsData == null || healthData == null) return null;
 
@@ -47,7 +47,7 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 			
 		}
 		
-		Data newData = new Data(ratioList, d1.getYears());
+		Data newData = new Data("Hospital Beds / Current Helath Expenditure",ratioList, d1.getYears());
 		return newData;
 		
 	}

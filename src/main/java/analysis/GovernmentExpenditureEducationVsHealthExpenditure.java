@@ -12,8 +12,8 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 	
 	public Result calculate(Selection selection) {
 				
-		Data governmentEducationData = readData(EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
-		Data healthData = readData(HEALTHCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data governmentEducationData = readData(EDUCATION, EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data healthData = readData(HEALTH, HEALTHCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		if (governmentEducationData == null || healthData == null) return null;
 
@@ -48,7 +48,7 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 			
 		}
 		
-		Data newData = new Data(ratioList, d1.getYears());
+		Data newData = new Data("Government Expenditure on Education / Current Health Expenditure", ratioList, d1.getYears());
 		
 		return newData;
 	}

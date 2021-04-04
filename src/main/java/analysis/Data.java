@@ -12,12 +12,7 @@ public class Data {
 		this.values = values;
 		this.years = years;
 	}
-	
-	public Data(List<Double> values, List<Integer> years) {
-		this.values = values;
-		this.years = years;
-	}
-	
+		
 	public void setValues(List<Double> newValues) {
 		this.values = newValues;
 	}

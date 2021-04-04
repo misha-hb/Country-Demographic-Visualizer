@@ -41,11 +41,74 @@ public class ScatterChart implements Viewer {
 
 	public void drawViewer() {
 		
+		XYPlot plot = new XYPlot();
 		List<Data> data = result.getData();
+		
+		DateAxis domainAxis = new DateAxis("Year");
+		plot.setDomainAxis(domainAxis);
+		
+		int c = 0;
 		for (Data d : data) {
-			TimeSeries series = new TimeSeries(d.getType());
+			
+			TimeSeriesCollection dataset = new TimeSeriesCollection();
+			XYItemRenderer itemrenderer = new XYLineAndShapeRenderer(false, true);
 
+			TimeSeries series = new TimeSeries(d.getType());
+			for (int i = 0; i < d.getValues().size(); i++)
+				series.add(new Year(d.getYears().get(i)), d.getValues().get(i));
+			dataset.addSeries(series);
+			
+			plot.setDataset(c, dataset);
+			plot.setRenderer(c, itemrenderer);
+			plot.setRangeAxis(c, new NumberAxis(getAxisLabel(d.getType())));	// CHANGE
+			plot.mapDatasetToRangeAxis(c, c);
+
+			c++;
 		}
+		
+		JFreeChart scatterChart = new JFreeChart(result.getName(),
+				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
+
+		ChartPanel chartPanel = new ChartPanel(scatterChart);
+		chartPanel.setPreferredSize(new Dimension(400, 300));
+		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		chartPanel.setBackground(Color.white);
+		JPanel panel = MainUI.getPanel();
+		panel.add(chartPanel);
+
+	}
+	
+	private String getAxisLabel(String type) {
+		String label = "";
+		switch (type) {
+		case "CO2 Emissions" :
+			label = "Metric Tons";
+			break;
+		case "Current Health Expenditure" :
+			label = "% of GDP";
+			break;
+		case "Current Health Expenditure per Capita" :
+			label = "Current US$";
+			break;
+		case "Energy Use" :
+			label = "kg of Oil";
+			break;
+		case "Forest Area" :
+			label = "% of Land Area";
+			break;
+		case "GDP per Capita" :
+			label = "Current US$";
+			break;
+		case "Government Expenditure on Education, Total" :
+			label = "% of GDP";
+			break;
+		case "PM2.5 Air Pollution, Mean Annual Exposure" :
+			label = "Micrograms per Cubic Meter";
+			break;
+		default :
+		}
+		
+		return label;
 	}
 	
 }

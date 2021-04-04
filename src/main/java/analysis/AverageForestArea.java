@@ -12,7 +12,7 @@ public class AverageForestArea extends Analysis {
 	
 	public Result calculate(Selection selection) {
 		
-		Data forestData = readData(FORESTCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
+		Data forestData = readData(FOREST, FORESTCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
 		
 		if (forestData == null) return null;
 

@@ -117,6 +117,7 @@ public class BarChart implements Viewer {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white); 
+		JPanel west = MainUI.getPanel();
 		west.add(chartPanel);
 	}	
 }
