@@ -30,6 +30,8 @@ public class PieChart implements Viewer {
 
 	public void drawViewer() {
 		
+		
+		
 		double value = this.result.getAverage();
 		
 		DefaultPieDataset dataset = new DefaultPieDataset(); 
@@ -51,5 +53,7 @@ public class PieChart implements Viewer {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+		
+		MainUI.getPanel().add(chartPanel);
 	}
 }
