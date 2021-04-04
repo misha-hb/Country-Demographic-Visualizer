@@ -99,15 +99,21 @@ public abstract class Analysis {
 	//}
 	
 	
-	/**
-	 *  @param abbrevation of the country specified
-	 * @return abbreviation from the countries file for corresponding country
-	 * @throws IOException
-	 */
-	private String getAbbreviation(String country) {
-		country = country.toLowerCase();
-		CountryDictionary dict = CountryDictionary.getDictionary();
-		Hashtable<String, String[]> abvDict = dict.getDict();
-		return abvDict.get(country)[0];
-	}
+	  /**
+	   * @param abbrevation of the country specified
+	   * @return abbreviation from the countries file for corresponding country
+	   * @throws IOException
+	   */
+	  private String getAbbreviation(String country) throws IOException {
+		  country = country.toLowerCase();
+		  Reader reader = new Reader();
+		  List<String[]> abvList = reader.readFile("CountriesFile.txt");
+		  for (int i = 0; i < abvList.size(); i++) {
+			  if (country.compareTo(abvList.get(i)[1].toLowerCase()) == 0) {
+				  return abvList.get(i)[5];
+				  }
+				}
+		  return "abbreviation not found";
+		  }
 }
+
