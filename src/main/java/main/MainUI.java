@@ -462,6 +462,8 @@ public class MainUI extends JFrame {
 		chartPanel.setBackground(Color.white);
 		west.add(chartPanel);
 
+    	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 	}
 	
 	public void displayError(String msg) {
