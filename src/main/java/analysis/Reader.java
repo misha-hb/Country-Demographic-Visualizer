@@ -67,9 +67,9 @@ public class Reader {
 		int lineCount = 0;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String readLine = reader.readLine();
-			while (readLine != null) {
-				fileDatabase.add(readLine.split(";"));
+			String readLine;
+			while ((readLine = reader.readLine()) != null) {
+				fileDatabase.add(readLine.split(","));
 				//databaseArray[lineCount] = readLine.split(";");
 				lineCount++;
 			}
