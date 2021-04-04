@@ -1,5 +1,7 @@
 package analysis;
 
+import java.io.IOException;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -95,4 +97,17 @@ public abstract class Analysis {
 		s.calculate(selection);
 		
 	}
+	
+	/**
+	   * @param abbrevation of the country specified
+	   * @return abbreviation from the countries file for corresponding country
+	   * @throws IOException
+	   */
+	  private String getAbbreviation(String country) throws IOException {
+		  country = country.toLowerCase();
+		  CountryDictionary dict = new CountryDictionary();
+		  Hashtable<String, String[]> abvDict = dict.getDict();
+		  return abvDict.get(country)[0];  
+	  }
+	
 }
