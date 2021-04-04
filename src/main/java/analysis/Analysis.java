@@ -52,14 +52,19 @@ public abstract class Analysis {
 	
 	public Data readData(String dataType, String dataCode, String country, String startYear, String endYear) {
 		
+		try {
 		String url = createURL(dataCode, country, startYear, endYear);
 		
 		Data d = reader.retrieveData(url, dataType);
 		
 		return d;
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	protected String createURL(String code, String country, String startYear, String endYear) {
+	protected String createURL(String code, String country, String startYear, String endYear) throws IOException {
 
 		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", getAbbreviation(country), code, startYear, endYear);
 		
@@ -99,15 +104,21 @@ public abstract class Analysis {
 	//}
 	
 	
-	/**
-	 *  @param abbrevation of the country specified
-	 * @return abbreviation from the countries file for corresponding country
-	 * @throws IOException
-	 */
-	private String getAbbreviation(String country) {
-		country = country.toLowerCase();
-		CountryDictionary dict = CountryDictionary.getDictionary();
-		Hashtable<String, String[]> abvDict = dict.getDict();
-		return abvDict.get(country)[0];
-	}
+	  /**
+	   * @param abbrevation of the country specified
+	   * @return abbreviation from the countries file for corresponding country
+	   * @throws IOException
+	   */
+	  private String getAbbreviation(String country) {
+		  country = country.toLowerCase();
+		  Reader reader = new Reader();
+		  List<String[]> abvList = reader.readFile("CountriesFile.txt");
+		  for (int i = 0; i < abvList.size(); i++) {
+			  if (country.compareTo(abvList.get(i)[1].toLowerCase()) == 0) {
+				  return abvList.get(i)[5];
+			  }
+		  }
+		  return null;
+	  }
 }
+

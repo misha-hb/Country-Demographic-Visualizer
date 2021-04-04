@@ -119,6 +119,9 @@ public class MainUI extends JFrame {
 		getContentPane().add(east, BorderLayout.EAST);
 		getContentPane().add(south, BorderLayout.SOUTH);
 		getContentPane().add(west, BorderLayout.WEST);
+		
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 	}
 
 	
@@ -196,7 +199,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 	}
 	
 	private void createReport(JPanel west) {
@@ -220,7 +223,7 @@ public class MainUI extends JFrame {
 
 		report.setText(reportMessage);
 		JScrollPane outputScrollPane = new JScrollPane(report);
-		west.add(outputScrollPane);
+		//west.add(outputScrollPane);
 	}
 
 
@@ -248,7 +251,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 	}
 
 	private void createBar(JPanel west) {
@@ -320,7 +323,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 	}
 
 	private void createLine(JPanel west) {
@@ -389,7 +392,7 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
 
 	}
 
@@ -457,7 +460,10 @@ public class MainUI extends JFrame {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		west.add(chartPanel);
+		//west.add(chartPanel);
+
+    	setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  
 
 	}
 	
@@ -468,11 +474,6 @@ public class MainUI extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
-		frame.pack();
-		frame.setVisible(true);
-
 	}
 
 }

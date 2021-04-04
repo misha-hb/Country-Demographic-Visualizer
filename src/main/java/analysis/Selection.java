@@ -129,13 +129,29 @@ public class Selection {
 		  return false;
 	  }
 	  
-	  CountryDictionary dict = CountryDictionary.getDictionary();
-	  Hashtable<String, String[]> yearsDict = dict.getDict();
-	  String [] yearsList = yearsDict.get(country.toLowerCase());
-	  if (startYear < Integer.parseInt(yearsList[1]) || endYear > Integer.parseInt(yearsList[2])) {
+	  int validStart = 0;
+	  int validEnd = 0;
+	  
+	  Reader reader = new Reader();
+	  reader.readFile("CountriesFile.txt");
+	  List<String[]> yearsList = reader.readFile("CountriesFile.txt");
+	  for (int i = 0; i < yearsList.size(); i++) {
+		  if (country.toLowerCase().compareTo(yearsList.get(i)[1].toLowerCase()) == 0) {
+			  if (yearsList.get(i)[yearsList.get(i).length-2].compareTo("Now") ==0 || yearsList.get(i)[yearsList.get(i).length-2].compareTo("now") == 0)
+				  validStart = 2021;
+			  else
+				  validStart = Integer.parseInt(yearsList.get(i)[yearsList.get(i).length-2]);
+			  if (yearsList.get(i)[yearsList.get(i).length-1].compareTo("Now") ==0 || yearsList.get(i)[yearsList.get(i).length-1].compareTo("now") == 0)
+				  validEnd = 2021;
+			  else
+				  validEnd = Integer.parseInt(yearsList.get(i)[yearsList.get(i).length-1]);
+		  }
+	  }
+	  
+	  if (startYear < validStart || endYear > validEnd) {
 		  MainUI ui = MainUI.getInstance();
 		  ui.displayError("Data cannot be fetched for the chosen years");
-		  return false;	  
+		  return false;
 	  }
 	  
 	  return true;

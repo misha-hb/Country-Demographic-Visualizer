@@ -1,9 +1,12 @@
 package userinterface;
 
+import java.util.Hashtable;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+
+import analysis.CountryDictionary;
 
 import analysis.Selection;
 
@@ -14,6 +17,7 @@ public class CountryMenu extends DropDownMenu {
 		super(labelString, selection);
 		
 		Vector<String> countries = new Vector<String>();
+
 		countries.add("USA");
 		countries.add("Canada");
 		countries.add("France");
