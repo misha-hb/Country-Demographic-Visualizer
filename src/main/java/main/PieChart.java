@@ -54,9 +54,5 @@ public class PieChart implements Viewer {
 		chartPanel.setBackground(Color.white);
 		
 		MainUI.getPanel().add(chartPanel);
-		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
-		frame.pack();
-		frame.setVisible(true);
 	}
 }
