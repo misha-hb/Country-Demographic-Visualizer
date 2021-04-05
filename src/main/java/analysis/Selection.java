@@ -17,7 +17,9 @@ public class Selection {
   private String analysisType, country, startYear, endYear;
   private List<String> viewers;
   
-  
+  /**
+   * constructor for selection which sets the analysis type, country, start year, end year and viewers
+   */
   public Selection() {
 	  this.analysisType = null;
 	  this.country = null;
@@ -26,6 +28,9 @@ public class Selection {
 	  this.viewers = new ArrayList<String>();	// "the list of viewers needs to be initially populated when the system is first run"
   }
   
+  /**
+   * @param sets analysis to selectedType entered by the user
+   */
   public void setAnalysisType(String selectedType) {
 	  analysisType = selectedType;
 	  viewers = new ArrayList<String>();	// empty the current viewers
@@ -84,22 +89,37 @@ public class Selection {
 	  }
   }
   
+  /**
+   * @return analysis type selected
+   */
   public String getAnalysisType() {
 	  return analysisType;
   }
 
+  /**
+   * @return country selected
+   */
   public String getCountry() {
 	  return country;
   }
 
+  /**
+   * @return start year selected
+   */
   public String getStartYear() {
 	  return startYear;
   }
 
+  /**
+   * @return end year selected
+   */
   public String getEndYear() {
 	  return endYear;
   }
   
+  /**
+   * @return list of viewers
+   */
   public List<String> getViewers() {
 	  return viewers;
   }
