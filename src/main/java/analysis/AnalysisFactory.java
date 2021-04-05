@@ -1,7 +1,7 @@
 package analysis;
 
 public class AnalysisFactory {
-	
+	 
 	public Analysis createAnalysis(Selection selection) {
 		Analysis analysisObj;
 		String type = selection.getAnalysisType();
