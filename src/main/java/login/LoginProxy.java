@@ -11,6 +11,11 @@ public class LoginProxy implements Login {
 	private String username, password;
   	private Login RL;
   
+  	/**
+  	 * sets the username and password variables as the ones entered by the user
+  	 * @param usr
+  	 * @param pwd
+  	 */
   	public LoginProxy(String usr, String pwd) {
       username = usr;
       password = pwd;
@@ -25,6 +30,9 @@ public class LoginProxy implements Login {
  
       LoginServer server = LoginServer.getInstance();
       try {
+    	  
+    	  //uses the verifyCredentials method in Login Server to check if the username and password entered is in the
+    	  //credentials database
     	  if (server.verifyCredentials(username, password)) {
     		  RL.authenticate();
     		  return true;}
