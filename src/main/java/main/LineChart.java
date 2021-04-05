@@ -27,6 +27,9 @@ import analysis.Subject;
 import analysis.Data;
 import main.MainUI;
 
+/**
+ * class representing the line chart viewer
+ */
 public class LineChart implements Viewer {
 	private Result result;
 
@@ -41,22 +44,30 @@ public class LineChart implements Viewer {
 		}
 	}
 
+	/**
+	 * draws the viewer depending on the result object containing the data
+	 */
 	public void drawViewer() {
 		XYSeriesCollection dataset = new XYSeriesCollection();
 		
+		//holds data
 		List<Data> dataList = result.getData(); 
+		
+		//determines the number of series in the viewer
 		int numOfSeries = dataList.size(); 
 		
+		//iterates over data 
 		Iterator<Data> iterator = dataList.iterator();
 		Data data = iterator.next();
 		
+		//creates a line chart for 1 series
 		XYSeries series1 = new XYSeries(data.getType());
 		for (int i = (data.getYears().size()) - 1; i >= 0; i--) {
 			series1.add(data.getYears().get(i), data.getValues().get(i));
 		}
 		dataset.addSeries(series1);
 
-		
+		//creates a line chart if there are 2 series
 		if (numOfSeries >= 2) {
 			Data next = iterator.next();
 			XYSeries series2 = new XYSeries(next.getType());
@@ -66,6 +77,7 @@ public class LineChart implements Viewer {
 			dataset.addSeries(series2);
 		}
 		
+		//creates a line chart depending on whether there are 3 series
 		if (numOfSeries == 3) {
 			Data third = iterator.next();
 			XYSeries series3 = new XYSeries(third.getType());
@@ -75,7 +87,6 @@ public class LineChart implements Viewer {
 			dataset.addSeries(series3);
 		}
 		
-
 		JFreeChart chart = ChartFactory.createXYLineChart(result.getName(), "Year", "", dataset,
 				PlotOrientation.VERTICAL, true, true, false);
 
