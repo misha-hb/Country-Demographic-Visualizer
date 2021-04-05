@@ -18,10 +18,10 @@ public class CountryMenu extends DropDownMenu {
 		super(labelString, selection);
 		
 		Vector<String> countries = new Vector<String>();
+		countries.add("Select country");
 		
 		Reader reader = new Reader();
 		List<String[]> cfile = reader.readFile("CountriesFile.txt");
-		
 		for(int i = 0; i < cfile.size(); i++) {
 			String country = cfile.get(i)[1];
 			countries.add(country);

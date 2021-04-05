@@ -14,6 +14,7 @@ public class ViewersMenu extends DropDownMenu {
 		super(labelString, selection);
 
 		Vector<String> viewers = new Vector<String>();
+		viewers.add("Select viewer");
 		viewers.add("Pie Chart");
 		viewers.add("Line Chart");
 		viewers.add("Bar Chart");

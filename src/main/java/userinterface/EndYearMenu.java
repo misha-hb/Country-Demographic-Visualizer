@@ -10,9 +10,11 @@ import analysis.Selection;
 public class EndYearMenu extends DropDownMenu {
 	
 	public EndYearMenu(String labelString, Selection selection) {
+
 		super(labelString, selection);
 		
 		Vector<String> years = new Vector<String>();
+		years.add("End Year");
 		for (int i = 2021; i >= 2010; i--) {
 			years.add("" + i);
 		}

@@ -160,8 +160,8 @@ public class Selection {
   
   private boolean validateViewerAddition(String viewer) {
 	  
-	  String averageDataAnalysis1 = "Average Forest Area";
-	  String averageDataAnalysis2 = "Average Government Expenditure on Education";
+	  String averageAnalysis1 = "Average Forest Area";
+	  String averageAnalysis2 = "Average Government Expenditure on Education";
 	  	  
 	  if (analysisType == null) {
 		  MainUI UI = MainUI.getInstance();
@@ -169,7 +169,7 @@ public class Selection {
 		  return false;
 	  }
 		  
-	  if (analysisType.contentEquals(averageDataAnalysis1) || analysisType.contentEquals(averageDataAnalysis2)) {
+	  if (analysisType.contentEquals(averageAnalysis1) || analysisType.contentEquals(averageAnalysis2)) {
 		  if (!viewer.contentEquals("Pie Chart")) {
 			  MainUI ui = MainUI.getInstance();
 			  ui.displayError("This viewer is incompatible with the selected analysis");
