@@ -63,14 +63,11 @@ public class Reader {
 	 */
 	public List<String[]> readFile(String file) {
 		List<String[]> fileDatabase = new ArrayList<>();
-		//String [][] databaseArray = new String [21][2];
-		int lineCount = 0;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String readLine = reader.readLine();
 			while (readLine != null) {
 				fileDatabase.add(readLine.split(","));
-				lineCount++;
 				readLine = reader.readLine();
 			}
 			reader.close();
