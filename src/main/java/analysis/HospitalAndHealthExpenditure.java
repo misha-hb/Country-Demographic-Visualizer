@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// Hospital beds and Health expenditure.
+// Hospital beds and Health expenditure 
 public class HospitalAndHealthExpenditure extends Analysis {
 	
 	public HospitalAndHealthExpenditure() {
