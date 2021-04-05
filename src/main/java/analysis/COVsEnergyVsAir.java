@@ -23,7 +23,7 @@ public class COVsEnergyVsAir extends Analysis{
 		dataList.add(energyData);
 		dataList.add(airData);
 		
-		Result result = new Result("CO2 Emissions vs Energy Use vs Air Pollution", dataList);
+		Result result = new Result("CO2 emissions (metric tons per capita) vs Energy use (kg of oil equivalent per capita) vs PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)", dataList);
 		
 		return result;
 	}

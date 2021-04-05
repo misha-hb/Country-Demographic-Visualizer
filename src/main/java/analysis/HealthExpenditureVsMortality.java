@@ -25,7 +25,7 @@ public class HealthExpenditureVsMortality extends Analysis {
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(healthData);
 		dataList.add(mortalityData);
-		Result result = new Result("Current Health Expenditure per Capita vs Mortality Rate", dataList);
+		Result result = new Result("Current health expenditure per capita (current US$) vs Mortality rate, infant (per 1,000 live births)", dataList);
 		return result;
 	}
 }

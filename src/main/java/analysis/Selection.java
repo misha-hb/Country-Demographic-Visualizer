@@ -197,7 +197,7 @@ public class Selection {
 	  }
 		  
 	  if (analysisType.contentEquals(averageAnalysis1) || analysisType.contentEquals(averageAnalysis2)) {
-		  if (!viewer.contentEquals("Pie Chart")) {
+		  if (!viewer.contentEquals("Pie Chart") && !viewer.contentEquals("Report")) {
 			  MainUI ui = MainUI.getInstance();
 			  ui.displayError("This viewer is incompatible with the selected analysis");
 			  return false;

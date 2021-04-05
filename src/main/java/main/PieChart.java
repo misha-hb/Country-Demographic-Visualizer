@@ -35,12 +35,12 @@ public class PieChart implements Viewer {
 		
 		DefaultPieDataset dataset = new DefaultPieDataset(); 
 		
-		if (result.getName().contentEquals("Average Forest Area")) {
+		if (result.getName().contentEquals("Average Forest area (% of land area)")) {
 
 			dataset.setValue("Forest Area", value);
 			dataset.setValue("Non-Forest Area", 100 - value);
 			
-		}else if (result.getName().contentEquals("Average Government Expenditure on Education")) {
+		}else if (result.getName().contentEquals("Average of Government expenditure on education, total (% of GDP)")) {
 		
 			dataset.setValue("Government Expenditure on Education", value);
 			dataset.setValue("Government Expenditure on non-education", 100 - value);

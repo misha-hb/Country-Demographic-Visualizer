@@ -23,7 +23,7 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(hospitalBedsData);
 		dataList.add(newHealthData);
-		Result result = new Result("Ratio of Hospital Beds and Current Health Expenditure", dataList);
+		Result result = new Result("Hospital beds (per 1,000 people) and Current health expenditure (per 1,000 people)", dataList);
 		return result;
 	}
 	

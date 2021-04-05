@@ -21,10 +21,9 @@ public class AirPollutionVsForestArea extends Analysis{
 		dataList.add(airData);
 		dataList.add(forestData);
 
-		Result result = new Result("Air Pollution vs Forest Area", dataList);
+		Result result = new Result("PM2.5 air pollution, mean annual exposure (micrograms per cubic meter) vs Forest area (% of land area)", dataList);
 		
 		return result;
-		
-		//test 
+
 	}
 }

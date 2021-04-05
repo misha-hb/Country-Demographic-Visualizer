@@ -22,7 +22,7 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(ratioData);
 		
-		Result result = new Result("Government Expenditure on Education vs Current Health Expenditure", dataList);
+		Result result = new Result("Ratio of Government expenditure on education, total (% of GDP) vs Current health expenditure (% of GDP)", dataList);
 		
 		return result;
 	}
