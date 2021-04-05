@@ -44,7 +44,7 @@ public class BarChart implements Viewer {
 		
 		/*
 		 * Determining what the y-axis label will be
-		 */
+		 */ 
 		String label = "";
 		if(result.getName().equals("Air Pollution vs Forest Area")) {
 			label = "Mean exposure / % of Area";
