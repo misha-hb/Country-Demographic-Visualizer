@@ -19,7 +19,8 @@ public class LoginProxy implements Login {
     }
   
   	/**
-  	 * this method authenticates the username and password entered by the user
+  	 * This method authenticates the username and password entered by the user
+  	 * returns true if the user is verified
   	 */
   	public boolean authenticate() {
       LoginServer server = LoginServer.getInstance();

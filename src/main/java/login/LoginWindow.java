@@ -4,6 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
+
+/**
+ * Login Window for the system
+ */
 public class LoginWindow extends javax.swing.JFrame {
 
     private javax.swing.JPanel mainPanel;

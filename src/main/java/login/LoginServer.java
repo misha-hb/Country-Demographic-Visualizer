@@ -7,10 +7,17 @@ import java.util.List;
 
 import analysis.Reader;
 
+/**
+ * Accesses the credentials database to determine whether the user
+ * can gain access with the username and password provided
+ */
 public class LoginServer {
   
   private static LoginServer instanceServer;
   
+  
+  //singleton design pattern ensuring that only one user is logged in the entire time the system is
+  //being used
   public static LoginServer getInstance() {
     if (instanceServer == null)
       instanceServer = new LoginServer();
@@ -18,7 +25,7 @@ public class LoginServer {
   }
   
   /**
-   * checks whether the username and password entered is valid and inside the credentials database
+   * checks whether the username and password entered is valid and inside the credentials database text file
    * @param usr username entered by user
    * @param pwd password entered by user
    * @return true if user credentials are validated
@@ -35,7 +42,6 @@ public class LoginServer {
 		if (fileArray.get(i)[0].compareTo(usr) == 0 && fileArray.get(i)[1].compareTo(pwd) == 0)
 			return true;
 	}
-	
 	return false;
   }
 		
