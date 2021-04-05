@@ -14,12 +14,18 @@ import main.Report;
 public class AnalysisServer {
 	
 	public void doAnalysis(Selection userSelection) {
-		
+		if((userSelection.getAnalysisType() == null) || (userSelection.getCountry() == null) || (userSelection.getEndYear() == null) || (userSelection.getStartYear() == null)) {
+			MainUI ui = MainUI.getInstance();
+			ui.displayError("All selections must be made to perform the analysis");
+			return;
+		}
+		/*
 		if (userSelection.getAnalysisType().contentEquals("Select analysis") || userSelection.getCountry().contentEquals("Select country") || userSelection.getStartYear().contentEquals("Start Year") || userSelection.getEndYear().contentEquals("End Year")) { 
 			MainUI ui = MainUI.getInstance();
 			ui.displayError("All selections must be made to perform the analysis");
 			return;
 		}
+		*/
 
 		AnalysisFactory factory = new AnalysisFactory();
 		Analysis analysisObj = factory.createAnalysis(userSelection);
