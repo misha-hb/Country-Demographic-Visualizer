@@ -1,36 +1,59 @@
 package login;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
 
 /**
- * Login Window for the system
+ * Validates user login through JFrame login window
  */
-public class LoginWindow extends javax.swing.JFrame {
+public class LoginWindow extends JFrame {
 
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JButton submitButton;
-    private javax.swing.JLabel usrLabel;
-    private javax.swing.JLabel pwdLabel;
-    private javax.swing.JTextField textUsername;
-    private javax.swing.JPasswordField textPassword;
+    private JPanel mainPanel;
+    private JButton submitButton;
+    private JLabel usrLabel;
+    private JLabel pwdLabel;
+    private JTextField textUsername;
+    private JPasswordField textPassword;
 
     
     public LoginWindow() {
         initComponents();
     }
     
-    
-    private void submitButtonPerformed(java.awt.event.ActionEvent evt) {
+    /**
+     * Invoked by trigger on the submit button
+     * Validates input credentials
+     * Displays the main user interface if credentials are valid
+     * Displays error window and terminates system otherwise
+     * @param evt
+     */
+    private void submitButtonPerformed(ActionEvent evt) {
         String username = textUsername.getText();
         String password = String.valueOf(textPassword.getPassword());
+        
+        if (username.contentEquals("") || password.contentEquals("")) {
+        	JFrame errorWindow = new JFrame();
+        	errorWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        	JOptionPane.showMessageDialog(errorWindow, "Username or password field is blank");
+        	errorWindow.dispose();
+        	return;
+        }
         
         Login proxy = new LoginProxy(username, password);
        
         if (!proxy.authenticate()) {
-        	javax.swing.JFrame errorWindow = new javax.swing.JFrame();
+        	JFrame errorWindow = new JFrame();
         	errorWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         	JOptionPane.showMessageDialog(errorWindow, "Username or password is incorrect.");
         	errorWindow.dispose();
@@ -38,11 +61,14 @@ public class LoginWindow extends javax.swing.JFrame {
         dispose();
     }
     
-    
+
+    /**
+     * Displays login window
+     */
     public static void main(String args[]) {
 
         try {
-            javax.swing.UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(LoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -61,15 +87,17 @@ public class LoginWindow extends javax.swing.JFrame {
         });
     }
 
-
+    /**
+     * Initiates window graphic components
+     */
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
-        usrLabel = new javax.swing.JLabel();
-        textUsername = new javax.swing.JTextField();
-        pwdLabel = new javax.swing.JLabel();
-        textPassword = new javax.swing.JPasswordField();
-        submitButton = new javax.swing.JButton();
+        mainPanel = new JPanel();
+        usrLabel = new JLabel();
+        textUsername = new JTextField();
+        pwdLabel = new JLabel();
+        textPassword = new JPasswordField();
+        submitButton = new JButton();
 
         mainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
@@ -78,8 +106,8 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdLabel.setText("Password: ");
 
         submitButton.setText("Submit");
-        submitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 submitButtonPerformed(evt);
             }
         });
@@ -126,7 +154,6 @@ public class LoginWindow extends javax.swing.JFrame {
             .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         
-
         pack();
     }
 

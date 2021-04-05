@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import analysis.Selection;
 
 public class AnalysisMenu extends DropDownMenu {
-
+ 
 	public AnalysisMenu(String labelString, Selection selection) {
 
 		super(labelString, selection);
@@ -21,7 +21,7 @@ public class AnalysisMenu extends DropDownMenu {
 		methodsNames.add("PM2.5 Air Pollution vs Forest Area");
 		methodsNames.add("Ratio of CO2 Emissions and GPD per Capita");
 		methodsNames.add("Ratio of Government Expenditure on Education vs Current Health Expenditure");
-		methodsNames.add("Ratio of Hospital Beds and Current Health Expenditure");
+		methodsNames.add("Hospital Beds and Current Health Expenditure");
 
 		list = new JComboBox<String>(methodsNames);
 		

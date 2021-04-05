@@ -2,6 +2,9 @@ package analysis;
 
 import java.util.List;
 
+/**
+ * class representing the data object retrieved
+ */
 public class Data {
 	private String type;
 	private List<Double> values;

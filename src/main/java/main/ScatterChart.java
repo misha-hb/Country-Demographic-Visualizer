@@ -24,12 +24,13 @@ import analysis.Result;
 import analysis.Subject;
 import analysis.Data;
 
-
+/**
+ * class representing the scatter chart viewer
+ */
 public class ScatterChart implements Viewer {
 	
 	private Result result;
 	
-
 	public ScatterChart(Result subject) {
 		this.result = subject;
 		subject.attach(this);
@@ -41,6 +42,9 @@ public class ScatterChart implements Viewer {
 		}
 	}
 
+	/**
+	 * draws viewer depending on data in result object
+	 */
 	public void drawViewer() {
 		
 		XYPlot plot = new XYPlot();
@@ -80,6 +84,11 @@ public class ScatterChart implements Viewer {
 
 	}
 	
+	/**
+	 * gets axis label depending on type of analysis
+	 * @param type
+	 * @return
+	 */
 	private String getAxisLabel(String type) {
 		String label = "";
 		switch (type) {

@@ -1,45 +1,24 @@
 package main;
 
 
-import java.awt.BasicStroke;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.chart.renderer.xy.XYSplineRenderer;
-import org.jfree.chart.title.TextTitle;
-import org.jfree.chart.util.TableOrder;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 import analysis.Data;
 import analysis.Result;
@@ -67,17 +46,17 @@ public class TimeSeriesChart implements Viewer{
 		 * Determining what the y-axis label will be
 		 */
 		String label = "";
-		if (result.getName().equals("Air Pollution vs Forest Area")) {
+		if (result.getName().equals("PM2.5 air pollution, mean annual exposure (micrograms per cubic meter) vs Forest area (% of land area)")) {
 			label = "Mean exposure / % of Area";
-		} else if (result.getName().equals("CO2 Emissions vs Energy Use vs Air Pollution")) {
+		} else if (result.getName().equals("CO2 emissions (metric tons per capita) vs Energy use (kg of oil equivalent per capita) vs PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)")) {
 			label = "metric tones";
-		} else if (result.getName().equals("Government Expenditure on Education vs Current Health Expenditure")) {
+		} else if (result.getName().equals("Ratio of Government expenditure on education, total (% of GDP) vs Current health expenditure (% of GDP)")) {
 			label = "% of GPD";
-		} else if (result.getName().equals("Current Health Expenditure per Capita vs Mortality Rate")) {
+		} else if (result.getName().equals("Current health expenditure per capita (current US$) vs Mortality rate, infant (per 1,000 live births)")) {
 			label = "US$";
-		} else if (result.getName().equals("Ratio of Hospital Beds and Current Health Expenditure")) {
-			label = "US$";
-		} else if (result.getName().equals("Ratio of CO2 Emissions and GPD per Capita")) {
+		} else if (result.getName().equals("Hospital beds (per 1,000 people) and Current health expenditure (per 1,000 people)")) {
+			label = "US$"; 
+		} else if (result.getName().equals("Ratio of CO2 emissions (metric tons per capita) and GDP per capita (current US$)")) {
 			label = "US$";
 		}
 

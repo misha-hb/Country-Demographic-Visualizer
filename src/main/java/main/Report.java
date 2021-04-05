@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,10 +11,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import analysis.Data;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.JTextArea;
+
 import analysis.Result;
 import analysis.Subject;
 
 public class Report implements Viewer {
+
 	private Result result;
 
 	public Report(Result subject) {
@@ -117,7 +124,6 @@ public class Report implements Viewer {
 		
 		MainUI.getPanel().add(outputScrollPane);
 		
-
-		// Draw operation for Report
+		
 	}
 }

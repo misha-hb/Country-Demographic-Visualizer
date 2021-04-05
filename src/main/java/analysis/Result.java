@@ -2,6 +2,9 @@ package analysis;
 
 import java.util.List;
 
+/**
+ * class holding result to be displayed in viewers
+ */
 public class Result extends Subject{
 	
 	private String name;

@@ -5,6 +5,9 @@ import javax.swing.JComboBox;
 
 import analysis.Selection;
 
+/**
+ * Abstract class for all buttons used in the Country Statistics Window
+ */
 public abstract class Button {
 
 	protected JButton button;
