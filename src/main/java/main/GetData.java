@@ -1,5 +1,4 @@
-	package main;
-
+package main;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -52,10 +51,8 @@ public class GetData {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block e.printStackTrace();
 		}
-
 		return;
 	}
-
 }
 
 

@@ -10,10 +10,11 @@ public class RealLogin implements Login {
 
 	public boolean authenticate() {
 		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
+		//frame.setSize(900, 600);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.pack();
 		frame.setVisible(true);
 		return true;
 	}
-
+	
 }

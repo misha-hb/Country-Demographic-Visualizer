@@ -21,6 +21,7 @@ import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 public class BarChart implements Viewer {
+	
 	private Result result;
 
 	public BarChart(Result subject) {

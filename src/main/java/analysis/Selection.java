@@ -1,16 +1,13 @@
 package analysis;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-import main.MainUI;
-
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Iterator;
+
+import main.MainUI;
 
 /**
  * Class holding all the selections performed by the user
@@ -19,6 +16,7 @@ public class Selection {
   
   private String analysisType, country, startYear, endYear;
   private List<String> viewers;
+  
   
   public Selection() {
 	  this.analysisType = null;
