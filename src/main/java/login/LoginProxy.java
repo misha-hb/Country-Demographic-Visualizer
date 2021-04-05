@@ -3,7 +3,6 @@ package login;
 import java.io.*;
 
 /**
- * 
  * This class ensures that the user is only able to access the system if
  * they have the proper credentials 
  */

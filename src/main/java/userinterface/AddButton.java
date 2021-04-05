@@ -1,10 +1,14 @@
 package userinterface;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 import analysis.Selection;
 
+/**
+ * Add button for viewers
+ * 
+ *
+ */
 public class AddButton extends Button {
 		
 	public AddButton(String labelString, Selection selection, JComboBox<String> dropDownList) {

@@ -15,7 +15,7 @@ import javax.swing.WindowConstants;
 
 
 /**
- * Login Window for the system
+ * Validates user login through JFrame login window
  */
 public class LoginWindow extends JFrame {
 
@@ -31,7 +31,13 @@ public class LoginWindow extends JFrame {
         initComponents();
     }
     
-    
+    /**
+     * Invoked by trigger on the submit button
+     * Validates input credentials
+     * Displays the main user interface if credentials are valid
+     * Displays error window and terminates system otherwise
+     * @param evt
+     */
     private void submitButtonPerformed(ActionEvent evt) {
         String username = textUsername.getText();
         String password = String.valueOf(textPassword.getPassword());
@@ -56,6 +62,9 @@ public class LoginWindow extends JFrame {
     }
     
 
+    /**
+     * Displays login window
+     */
     public static void main(String args[]) {
 
         try {
@@ -78,7 +87,9 @@ public class LoginWindow extends JFrame {
         });
     }
 
-
+    /**
+     * Initiates window graphic components
+     */
     private void initComponents() {
 
         mainPanel = new JPanel();
