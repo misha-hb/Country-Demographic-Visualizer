@@ -46,17 +46,17 @@ public class BarChart implements Viewer {
 		 * Determining what the y-axis label will be
 		 */ 
 		String label = "";
-		if(result.getName().equals("Air Pollution vs Forest Area")) {
+		if(result.getName().equals("PM2.5 air pollution, mean annual exposure (micrograms per cubic meter) vs Forest area (% of land area)")) {
 			label = "Mean exposure / % of Area";
-		} else if (result.getName().equals("CO2 Emissions vs Energy Use vs Air Pollution")) {
+		} else if (result.getName().equals("CO2 emissions (metric tons per capita) vs Energy use (kg of oil equivalent per capita) vs PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)")) {
 			label = "metric tones";
-		} else if(result.getName().equals("Government Expenditure on Education vs Current Health Expenditure")) {
+		} else if(result.getName().equals("Ratio of Government expenditure on education, total (% of GDP) vs Current health expenditure (% of GDP)")) {
 			label = "% of GPD";
-		} else if (result.getName().equals("Current Health Expenditure per Capita vs Mortality Rate")) {
+		} else if (result.getName().equals("Current health expenditure per capita (current US$) vs Mortality rate, infant (per 1,000 live births)")) {
 			label = "US$";
-		} else if (result.getName().equals("Hospital Beds and Current Health Expenditure")) {
+		} else if (result.getName().equals("Hospital beds (per 1,000 people) and Current health expenditure (per 1,000 people)")) {
 			label = "US$";
-		}else if(result.getName().equals("Ratio of CO2 Emissions and GPD per Capita")) {
+		}else if(result.getName().equals("Ratio of CO2 emissions (metric tons per capita) and GDP per capita (current US$)")) {
 			label = "US$";
 		}
 			
