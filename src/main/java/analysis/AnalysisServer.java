@@ -1,5 +1,6 @@
 package analysis;
 
+import java.awt.BorderLayout;
 import java.util.List;
 
 import main.BarChart;
@@ -12,6 +13,7 @@ import main.ScatterChart;
 public class AnalysisServer {
 	
 	public void doAnalysis(Selection userSelection) {
+		
 	
 		AnalysisFactory factory = new AnalysisFactory();
 		Analysis analysisObj = factory.createAnalysis(userSelection);
@@ -42,7 +44,9 @@ public class AnalysisServer {
 				}
 			}
 		
+			MainUI.getInstance().getPanel().removeAll();
 			resultObj.updateViewers();
+			MainUI.getInstance().setVisible(true);
 		}
 	
 		else {
