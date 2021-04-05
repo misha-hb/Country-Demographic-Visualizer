@@ -2,6 +2,11 @@ package login;
 
 import java.io.*;
 
+/**
+ * 
+ * This class ensures that the user is only able to access the system if
+ * they have the proper credentials 
+ */
 public class LoginProxy implements Login {
 
 	private String username, password;
@@ -13,6 +18,9 @@ public class LoginProxy implements Login {
       RL = new RealLogin();
     }
   
+  	/**
+  	 * this method authenticates the username and password entered by the user
+  	 */
   	public boolean authenticate() {
       LoginServer server = LoginServer.getInstance();
       try {
