@@ -16,8 +16,8 @@ public class AnalysisFactory {
 			analysisObj = new AverageForestArea();
 		else if (type.contentEquals("Average Government Expenditure on Education"))
 			analysisObj = new AverageGovernmentExpenditure();
-		else if (type.contentEquals("Ratio of Hospital Beds and Current Health Expenditure"))
-			analysisObj = new RatioHospitalAndHealthExpenditure();
+		else if (type.contentEquals("Hospital Beds and Current Health Expenditure"))
+			analysisObj = new HospitalAndHealthExpenditure();
 		else if (type.contentEquals("Current Health Expenditure per Capita vs Mortality Rate"))
 			analysisObj = new HealthExpenditureVsMortality();
 		else

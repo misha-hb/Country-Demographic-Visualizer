@@ -75,7 +75,7 @@ public class TimeSeriesChart implements Viewer{
 			label = "% of GPD";
 		} else if (result.getName().equals("Current Health Expenditure per Capita vs Mortality Rate")) {
 			label = "US$";
-		} else if (result.getName().equals("Ratio of Hospital Beds and Current Health Expenditure")) {
+		} else if (result.getName().equals("Hospital Beds and Current Health Expenditure")) {
 			label = "US$";
 		} else if (result.getName().equals("Ratio of CO2 Emissions and GPD per Capita")) {
 			label = "US$";

@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 
 // Hospital beds and Health expenditure.
-public class RatioHospitalAndHealthExpenditure extends Analysis {
+public class HospitalAndHealthExpenditure extends Analysis {
 	
-	public RatioHospitalAndHealthExpenditure() {
+	public HospitalAndHealthExpenditure() {
 		super();
 	}
 	
@@ -23,7 +23,7 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 		List<Data> dataList = new ArrayList<Data>();
 		dataList.add(hospitalBedsData);
 		dataList.add(newHealthData);
-		Result result = new Result("Ratio of Hospital Beds and Current Health Expenditure", dataList);
+		Result result = new Result("Hospital Beds and Current Health Expenditure", dataList);
 		return result;
 	}
 	
