@@ -67,6 +67,7 @@ public class Reader {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String readLine = reader.readLine();
 			while (readLine != null) {
+	    		readLine = readLine.replaceAll("\"", "");
 				fileDatabase.add(readLine.split(","));
 				readLine = reader.readLine();
 			}
