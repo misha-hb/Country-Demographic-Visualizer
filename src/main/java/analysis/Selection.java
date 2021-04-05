@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 
+/**
+ * Class holding all the selections performed by the user
+ */
 public class Selection {
   
   private String analysisType, country, startYear, endYear;
@@ -31,6 +34,11 @@ public class Selection {
 	  System.out.println(String.format("Selected analysis \"%s\"", selectedType));
   }
   
+  /**
+   * country is only set if it is compatible with the previously chosen analysis type
+   * @param selectedCountry
+   * @throws IOException
+   */
   public void setCountry(String selectedCountry) throws IOException {
 	  if (validateCountry(selectedCountry)) {
 		  country = selectedCountry;
@@ -38,6 +46,10 @@ public class Selection {
 	  }
   }
 
+  /**
+   * start year is only set if it is in the valid period for the chosen country
+   * @param selectedYear
+   */
   public void setStartYear(String selectedYear) {
 	  if ((endYear != null && validatePeriod(Integer.parseInt(selectedYear), Integer.parseInt(endYear))) || endYear == null) {
 		  startYear = selectedYear;
@@ -45,6 +57,10 @@ public class Selection {
 	  }
   }
   
+  /**
+   * end year is only set if it is in the valid period for the chosen country
+   * @param selectedYear
+   */
   public void setEndYear(String selectedYear) {
 	  if ((startYear != null && validatePeriod(Integer.parseInt(startYear), Integer.parseInt(selectedYear))) || startYear == null) {
 		  endYear = selectedYear;
@@ -52,6 +68,10 @@ public class Selection {
 	  }
   }
   
+  /**
+   * adds viewer only if it is compatible with the chosen analysis type
+   * @param selectedViewer
+   */
   public void addViewer(String selectedViewer) {
 	  if(validateViewerAddition(selectedViewer)) {
 		  viewers.add(selectedViewer);
@@ -74,7 +94,6 @@ public class Selection {
 	  return country;
   }
 
-
   public String getStartYear() {
 	  return startYear;
   }
@@ -87,6 +106,11 @@ public class Selection {
 	  return viewers;
   }
 
+  /**
+   * checks in the country exclusion file if the chosen country is valid for the chosen analysis type
+   * @param country selected by user
+   * @return
+   */
   private boolean validateCountry(String country) {
 	  
 	  // check if analysis is chosen
@@ -133,7 +157,6 @@ public class Selection {
 	  int validEnd = 0;
 	  
 	  Reader reader = new Reader();
-	  //reader.readFile("CountriesFile.txt");
 	  List<String[]> yearsList = reader.readFile("CountriesFile.txt");
 	  for (int i = 0; i < yearsList.size(); i++) {
 		  if (country.toLowerCase().compareTo(yearsList.get(i)[1].toLowerCase()) == 0) {
@@ -157,7 +180,11 @@ public class Selection {
 	  return true;
   }
 
-  
+  /**
+   * determines if the viewer added by the user is compatible with the chosen analysos
+   * @param viewer
+   * @return
+   */
   private boolean validateViewerAddition(String viewer) {
 	  
 	  String averageAnalysis1 = "Average Forest Area";
@@ -188,6 +215,11 @@ public class Selection {
 	  return true;
   }
   
+  /**
+   * determines if the viewer to be removed has been previously added
+   * @param viewer
+   * @return
+   */
   private boolean validateViewerRemoval(String viewer) {
 	  
 	  if(viewers == null) return false;
