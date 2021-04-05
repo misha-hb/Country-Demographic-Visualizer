@@ -18,6 +18,7 @@ public class ViewersMenu extends DropDownMenu {
 		viewers.add("Line Chart");
 		viewers.add("Bar Chart");
 		viewers.add("Scatter Chart");
+		viewers.add("Time Series Chart");
 		viewers.add("Report");
 
 		list = new JComboBox<String>(viewers);

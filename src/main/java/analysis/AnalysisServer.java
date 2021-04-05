@@ -3,12 +3,13 @@ package analysis;
 import java.awt.BorderLayout;
 import java.util.List;
 
-import main.BarChart;
-import main.LineChart;
 import main.MainUI;
 import main.PieChart;
-import main.Report;
+import main.BarChart;
+import main.LineChart;
 import main.ScatterChart;
+import main.TimeSeriesChart;
+import main.Report;
 
 public class AnalysisServer {
 	
@@ -37,6 +38,9 @@ public class AnalysisServer {
 					break;
 				case "Scatter Chart" :
 					new ScatterChart(resultObj);
+					break;
+				case "Time Series Chart" :
+					new TimeSeriesChart(resultObj);
 					break;
 				case "Report" :
 					new Report(resultObj);

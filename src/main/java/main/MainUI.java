@@ -96,7 +96,7 @@ public class MainUI extends JFrame {
 		Button addButton = new AddButton("+", selectionObj, viewersDropDown.getList());
 		Button removeButton = new RemoveButton("-", selectionObj, viewersDropDown.getList());
 
-		DropDownMenu analysisDropDown = new AnalysisMenu("        Choose analysis method: ", selectionObj);
+		DropDownMenu analysisDropDown = new AnalysisMenu("Choose analysis method: ", selectionObj);
 
 		JPanel south = new JPanel();
 		south.add(viewersDropDown.getLabel());
