@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import analysis.Selection;
 
 public class AnalysisMenu extends DropDownMenu {
-
+ 
 	public AnalysisMenu(String labelString, Selection selection) {
 
 		super(labelString, selection);
