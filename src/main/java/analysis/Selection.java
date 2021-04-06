@@ -34,7 +34,7 @@ public class Selection {
   public void setAnalysisType(String selectedType) {
 	  analysisType = selectedType;
 	  viewers = new ArrayList<String>();	// empty the current viewers
-	  System.out.println(String.format("Selected analysis \"%s\"", selectedType));
+	  //System.out.println(String.format("Selected analysis \"%s\"", selectedType));
   }
   
   /**
@@ -45,7 +45,7 @@ public class Selection {
   public void setCountry(String selectedCountry) throws IOException {
 	  if (validateCountry(selectedCountry)) {
 		  country = selectedCountry;
-		  System.out.println(String.format("Selected country \"%s\"", selectedCountry));
+		  //System.out.println(String.format("Selected country \"%s\"", selectedCountry));
 	  }
   }
 
@@ -56,7 +56,7 @@ public class Selection {
   public void setStartYear(String selectedYear) {
 	  if ((endYear != null && validatePeriod(Integer.parseInt(selectedYear), Integer.parseInt(endYear))) || endYear == null) {
 		  startYear = selectedYear;
-		  System.out.println(String.format("Selected start year \"%s\"", selectedYear));
+		  //System.out.println(String.format("Selected start year \"%s\"", selectedYear));
 	  }
   }
   
@@ -67,7 +67,7 @@ public class Selection {
   public void setEndYear(String selectedYear) {
 	  if ((startYear != null && validatePeriod(Integer.parseInt(startYear), Integer.parseInt(selectedYear))) || startYear == null) {
 		  endYear = selectedYear;
-		  System.out.println(String.format("Selected end year \"%s\"", selectedYear));
+		  //System.out.println(String.format("Selected end year \"%s\"", selectedYear));
 	  }
   }
   
@@ -78,14 +78,14 @@ public class Selection {
   public void addViewer(String selectedViewer) {
 	  if(validateViewerAddition(selectedViewer)) {
 		  viewers.add(selectedViewer);
-		  System.out.println(String.format("Added viewer \"%s\"", selectedViewer));
+		  //System.out.println(String.format("Added viewer \"%s\"", selectedViewer));
 	  }
   }
   
   public void removeViewer(String selectedViewer) {
 	  if(validateViewerRemoval(selectedViewer)) {
 		  viewers.remove(selectedViewer);
-		  System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
+		  //System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
 	  }
   }
   
