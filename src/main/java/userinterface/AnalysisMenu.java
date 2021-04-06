@@ -32,9 +32,9 @@ public class AnalysisMenu extends DropDownMenu {
 		methodsNames.add("Ratio of Government Expenditure on Education vs Current Health Expenditure");
 		methodsNames.add("Hospital Beds and Current Health Expenditure");
 
-		list = new JComboBox<String>(methodsNames); //creating a list for the selection
+		list = new JComboBox<String>(methodsNames);
 		
-		list.addActionListener(new SelectAction("analysis", selection, list)); //Adds user selection to list
+		list.addActionListener(new SelectAction("analysis", selection, list)); 
 		
 	}
 
