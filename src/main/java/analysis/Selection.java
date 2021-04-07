@@ -33,8 +33,8 @@ public class Selection {
    */
   public void setAnalysisType(String selectedType) {
 	  analysisType = selectedType;
-	  viewers = new ArrayList<String>();	// empty the current viewers
-	  //System.out.println(String.format("Selected analysis \"%s\"", selectedType));
+	  if (!selectedType.contentEquals(analysisType))
+		  viewers = new ArrayList<String>();	// empty the current viewers
   }
   
   /**
@@ -45,7 +45,6 @@ public class Selection {
   public void setCountry(String selectedCountry) throws IOException {
 	  if (validateCountry(selectedCountry)) {
 		  country = selectedCountry;
-		  //System.out.println(String.format("Selected country \"%s\"", selectedCountry));
 	  }
   }
 
