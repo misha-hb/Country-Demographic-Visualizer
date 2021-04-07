@@ -45,7 +45,7 @@ public class LineChart implements Viewer {
 	}
 
 	/**
-	 * draws the viewer depending on the result object containing the data
+	 * populates viewers with data and draws the line chart
 	 */
 	public void drawViewer() {
 		XYSeriesCollection dataset = new XYSeriesCollection();
@@ -92,6 +92,7 @@ public class LineChart implements Viewer {
 
 		XYPlot plot = chart.getXYPlot();
 
+		//sets lines and colors
 		XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
 		renderer.setSeriesPaint(0, Color.RED);
 		renderer.setSeriesStroke(0, new BasicStroke(2.0f));
@@ -99,6 +100,7 @@ public class LineChart implements Viewer {
 		plot.setRenderer(renderer);
 		plot.setBackgroundPaint(Color.white);
 
+		//sets range and domain grid lines
 		plot.setRangeGridlinesVisible(true);
 		plot.setRangeGridlinePaint(Color.BLACK);
 
@@ -107,9 +109,11 @@ public class LineChart implements Viewer {
 
 		chart.getLegend().setFrame(BlockBorder.NONE);
 
+		//sets title based on analysis name
 		chart.setTitle(
 				new TextTitle(result.getName(), new Font("Serif", java.awt.Font.BOLD, 18)));
 
+		//creates chart panel
 		ChartPanel chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));

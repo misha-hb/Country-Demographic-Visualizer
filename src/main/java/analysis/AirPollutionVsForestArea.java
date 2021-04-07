@@ -3,7 +3,10 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-//PM2.5 air pollution, mean annual exposure (micrograms per cubic meter) vs Forest area (% of land area) 
+/**
+ * 
+ * Analysis class for PM2.5 air pollution, mean annual exposure (micrograms per cubic meter) vs Forest area (% of land area) 
+ */
 public class AirPollutionVsForestArea extends Analysis{
 	
 	public AirPollutionVsForestArea() {
