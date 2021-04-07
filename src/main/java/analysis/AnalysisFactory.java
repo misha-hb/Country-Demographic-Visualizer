@@ -7,7 +7,7 @@ public class AnalysisFactory {
 	 
 	/**
 	 * creates an analysis object based on user selections
-	 * @param selection contains user selections that include end/start years, analysis type, country
+	 * @param selection contains user selections that includes analysis type which is used to create the analysis object
 	 * @return an analysis object
 	 */
 	public Analysis createAnalysis(Selection selection) {
