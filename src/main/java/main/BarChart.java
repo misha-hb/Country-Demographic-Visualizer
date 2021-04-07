@@ -21,7 +21,7 @@ import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- * Represents the bar chart that will appear on the main UI
+ * Represents the bar chart that will appear on the main UI 
  */
 
 public class BarChart implements Viewer {
