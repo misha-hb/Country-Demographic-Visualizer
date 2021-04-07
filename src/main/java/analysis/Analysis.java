@@ -101,7 +101,6 @@ public abstract class Analysis {
 
 		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", getAbbreviation(country), code, startYear, endYear);
 		
-		System.out.println(urlString);
 		return urlString;
 	}
 	
@@ -126,13 +125,11 @@ public abstract class Analysis {
 		//prints all values and adds it to the total
 		while (i1.hasNext()) {
 			curr = i1.next();
-			System.out.println(curr);
 			total += curr;
 		}
 		
 		//total is divided by the number of years to obtain the average and this is printed
 		average = total / years.size();
-		System.out.println(average);
 		return average;
 	}
 
