@@ -52,8 +52,6 @@ Country Code,"Country Name, Full ","Country Name, Abbreviation",Country Comments
 148,Chad,Chad,,TD,TCD,1962,Now
 152,Chile,Chile,,CL,CHL,1962,Now
 156,China,China,,CN,CHN,1962,Now
-344,"China, Hong Kong Special Administrative Region","China, Hong Kong SAR",,HK,HKG,1962,Now
-446,"China, Macao Special Administrative Region","China, Macao SAR",,MO,MAC,1962,Now
 162,Christmas Islands,Christmas Isds,,CX,CXR,1962,Now
 166,Cocos Islands,Cocos Isds,,CC,CCK,1962,Now
 170,Colombia,Colombia,,CO,COL,1962,Now
