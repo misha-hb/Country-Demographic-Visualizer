@@ -30,7 +30,7 @@ public class BarChart implements Viewer {
 	
 	/**
 	 * Constructor for class 
-	 * will set the result object from the subject object
+	 * will set the result object
 	 * @param subject
 	 */
 	public BarChart(Result subject) {
@@ -131,14 +131,14 @@ public class BarChart implements Viewer {
 			 plot.mapDatasetToRangeAxis(0, 0); // 3rd data set to 2nd y-axis
 		}
 		
-		//setting the chart dimension and visual characteristics such as plot
+		//setting the chart dimension and visual characteristics such as fonts and borders
 		JFreeChart barChart = new JFreeChart(result.getName(), new Font("Serif", java.awt.Font.BOLD, 18), plot, true); //setting font
 		ChartPanel chartPanel = new ChartPanel(barChart); // creating a new chart Panel
 		chartPanel.setPreferredSize(new Dimension(400, 300)); 
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white); 
 		JPanel panel = MainUI.getPanel();
-		panel.add(chartPanel);
+		panel.add(chartPanel); //Adding bar chart panel to the UI panel
 	}	
 }
 
