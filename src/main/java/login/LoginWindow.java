@@ -25,7 +25,9 @@ public class LoginWindow extends JFrame {
     private JTextField textUsername;
     private JPasswordField textPassword;
 
-    
+    /**
+     * constructor initializing components
+     */
     public LoginWindow() {
         initComponents();
     }
@@ -86,6 +88,7 @@ public class LoginWindow extends JFrame {
         });
     }
 
+    
     /**
      * Initiates window graphic components
      */

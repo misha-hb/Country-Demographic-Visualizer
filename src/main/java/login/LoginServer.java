@@ -13,8 +13,10 @@ public class LoginServer {
   
   private static LoginServer instanceServer;
   
-  //singleton design pattern ensuring that only one user is logged in the entire time the system is
-  //being used
+  /**
+   * singleton design pattern ensuring that only one user is logged in the entire time the system is being used
+   * @return instance Server
+   */
   public static LoginServer getInstance() {
     if (instanceServer == null)
       instanceServer = new LoginServer();
