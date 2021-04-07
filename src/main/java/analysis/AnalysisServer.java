@@ -26,13 +26,6 @@ public class AnalysisServer {
 			ui.displayError("All selections must be made to perform the analysis");
 			return;
 		}
-		/*
-		if (userSelection.getAnalysisType().contentEquals("Select analysis") || userSelection.getCountry().contentEquals("Select country") || userSelection.getStartYear().contentEquals("Start Year") || userSelection.getEndYear().contentEquals("End Year")) { 
-			MainUI ui = MainUI.getInstance();
-			ui.displayError("All selections must be made to perform the analysis");
-			return;
-		}
-		*/
 
 		//creates new AnalysisFactory object and passes the user's selections as a parameter
 		AnalysisFactory factory = new AnalysisFactory();
