@@ -33,15 +33,6 @@ public class CountryMenu extends DropDownMenu {
 			countries.add(country);
 		}
 		
-		// Some countries are formatted so that they have " at the front, not sure if we should fix the file 
-
-		//countries.add("USA");
-		//countries.add("Canada");
-		//countries.add("France");
-		//countries.add("China");
-		//countries.add("Brazil");
-		//countries.sort(null);
-		
 		list = new JComboBox<String>(countries); //Creates a list and recieves the country selection to the list
 		list.addActionListener(new SelectAction("country", selection, list));
 
