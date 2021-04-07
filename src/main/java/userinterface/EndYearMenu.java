@@ -3,9 +3,9 @@ package userinterface;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 
 import analysis.Selection;
+
 	/**
 	 * EndYearMenu
 	 * class represents the end year drop down menu, 

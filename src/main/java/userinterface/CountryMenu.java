@@ -1,15 +1,13 @@
 package userinterface;
 
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 
-import analysis.CountryDictionary;
 import analysis.Reader;
 import analysis.Selection;
+
 /**
  * Country Menu
  *Represents the drop down menu for all of the countries on the UI

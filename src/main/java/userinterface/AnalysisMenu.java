@@ -5,6 +5,7 @@ import java.util.Vector;
 import javax.swing.JComboBox;
 
 import analysis.Selection;
+
 /**
  * Analysis Menu
  * Adds all the analysis names into the analysis drop down menu

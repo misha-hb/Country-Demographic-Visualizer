@@ -1,6 +1,5 @@
 package analysis;
 
-import java.awt.BorderLayout;
 import java.util.List;
 
 import main.MainUI;

@@ -1,62 +1,38 @@
 package main;
 
-import java.awt.BasicStroke;
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.*;
-import java.util.Vector;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.DateAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.chart.renderer.xy.XYSplineRenderer;
-import org.jfree.chart.title.TextTitle;
-import org.jfree.chart.util.TableOrder;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.time.Year;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-
 import analysis.Selection;
+import userinterface.AddButton;
+import userinterface.AnalysisMenu;
+import userinterface.Button;
+import userinterface.CountryMenu;
+import userinterface.DropDownMenu;
+import userinterface.EndYearMenu;
+import userinterface.RecalculateButton;
+import userinterface.RemoveButton;
+import userinterface.StartYearMenu;
+import userinterface.ViewersMenu;
 
-import userinterface.*;
-
+/**
+ * JFrame user interface for Country Statistics window
+ */
 public class MainUI extends JFrame {
-
-	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
 	private static JPanel west;
 	
 	private Selection selectionObj;
 	
-	
+	/**
+	 * @return Singleton MainUI object
+	 */
 	public static MainUI getInstance() {
 		if (instance == null)
 			instance = new MainUI();
@@ -64,23 +40,31 @@ public class MainUI extends JFrame {
 		return instance;
 	}
 
+	/**
+	 * JPanel for viewers to be added to
+	 * @return JPanel where viewers are displayed
+	 */
 	public static JPanel getPanel() {
 		return west;
 	}
 	
+	/**
+	 * Constructor initiates drop-down menus and buttons
+	 */
 	private MainUI() {
 				
-		// Set window title
 		super("Country Statistics");
 		
 		selectionObj = new Selection();
 		
+		// Create country menu
 		DropDownMenu countryDropDown = new CountryMenu("Choose a country: ", selectionObj);
 		
-		//YearsMenu yearsDropDown = new YearsMenu(selectionObj);
+		// Create year menus
 		DropDownMenu startDropDown = new StartYearMenu("From", selectionObj);
 		DropDownMenu endDropDown = new EndYearMenu("To", selectionObj);
 
+		// Add north JPanel components
 		JPanel north = new JPanel();
 		north.add(countryDropDown.getLabel());
 		north.add(countryDropDown.getList());
@@ -88,22 +72,25 @@ public class MainUI extends JFrame {
 		north.add(startDropDown.getList());
 		north.add(endDropDown.getLabel());
 		north.add(endDropDown.getList());
+	
 
-		
+		// Create recalculate button
 		Button recalculateButton = new RecalculateButton("Recalculate", selectionObj);
 		
+		// Create viewer selection components
 		DropDownMenu viewersDropDown = new ViewersMenu("Available Views: ", selectionObj);
 		Button addButton = new AddButton("+", selectionObj, viewersDropDown.getList());
 		Button removeButton = new RemoveButton("-", selectionObj, viewersDropDown.getList());
 
+		// Create analysis menu
 		DropDownMenu analysisDropDown = new AnalysisMenu("Choose analysis method: ", selectionObj);
 
+		// Add south JPanel components
 		JPanel south = new JPanel();
 		south.add(viewersDropDown.getLabel());
 		south.add(viewersDropDown.getList());
 		south.add(addButton.getButton());
 		south.add(removeButton.getButton());
-
 		south.add(analysisDropDown.getLabel());
 		south.add(analysisDropDown.getList());
 		south.add(recalculateButton.getButton());
@@ -123,19 +110,15 @@ public class MainUI extends JFrame {
 
 	}
 
-
+	/**
+	 * Display error message
+	 * @param msg - Message to display to user
+	 */
 	public void displayError(String msg) {
     	javax.swing.JFrame errorWindow = new javax.swing.JFrame();
     	JOptionPane.showMessageDialog(errorWindow, msg);
     	errorWindow.dispose();
 	}
 
-	public static void main(String[] args) {
-		JFrame frame = MainUI.getInstance();
-		//frame.setSize(900, 600);
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.pack();
-		frame.setVisible(true);
-	}
 
 }

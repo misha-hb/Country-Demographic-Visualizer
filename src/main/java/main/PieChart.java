@@ -4,14 +4,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-import analysis.Data;
 import analysis.Result;
 import analysis.Subject;
 

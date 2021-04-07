@@ -3,7 +3,6 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-
 //Health and mortality expenditure
 public class HealthExpenditureVsMortality extends Analysis {
 	

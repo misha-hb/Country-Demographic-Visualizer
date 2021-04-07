@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
-
 /**
  * Validates user login through JFrame login window
  */

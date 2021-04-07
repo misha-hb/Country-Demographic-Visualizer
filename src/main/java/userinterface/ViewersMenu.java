@@ -3,7 +3,6 @@ package userinterface;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 
 import analysis.Selection;
 
