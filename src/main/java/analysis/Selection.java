@@ -17,7 +17,9 @@ public class Selection {
   private String analysisType, country, startYear, endYear;
   private List<String> viewers;
   
-  
+  /**
+   * constructor for selection which sets the analysis type, country, start year, end year and viewers
+   */
   public Selection() {
 	  this.analysisType = null;
 	  this.country = null;
@@ -26,10 +28,13 @@ public class Selection {
 	  this.viewers = new ArrayList<String>();	// "the list of viewers needs to be initially populated when the system is first run"
   }
   
+  /**
+   * @param sets analysis to selectedType entered by the user
+   */
   public void setAnalysisType(String selectedType) {
 	  analysisType = selectedType;
 	  viewers = new ArrayList<String>();	// empty the current viewers
-	  System.out.println(String.format("Selected analysis \"%s\"", selectedType));
+	  //System.out.println(String.format("Selected analysis \"%s\"", selectedType));
   }
   
   /**
@@ -40,7 +45,7 @@ public class Selection {
   public void setCountry(String selectedCountry) throws IOException {
 	  if (validateCountry(selectedCountry)) {
 		  country = selectedCountry;
-		  System.out.println(String.format("Selected country \"%s\"", selectedCountry));
+		  //System.out.println(String.format("Selected country \"%s\"", selectedCountry));
 	  }
   }
 
@@ -51,7 +56,7 @@ public class Selection {
   public void setStartYear(String selectedYear) {
 	  if ((endYear != null && validatePeriod(Integer.parseInt(selectedYear), Integer.parseInt(endYear))) || endYear == null) {
 		  startYear = selectedYear;
-		  System.out.println(String.format("Selected start year \"%s\"", selectedYear));
+		  //System.out.println(String.format("Selected start year \"%s\"", selectedYear));
 	  }
   }
   
@@ -62,7 +67,7 @@ public class Selection {
   public void setEndYear(String selectedYear) {
 	  if ((startYear != null && validatePeriod(Integer.parseInt(startYear), Integer.parseInt(selectedYear))) || startYear == null) {
 		  endYear = selectedYear;
-		  System.out.println(String.format("Selected end year \"%s\"", selectedYear));
+		  //System.out.println(String.format("Selected end year \"%s\"", selectedYear));
 	  }
   }
   
@@ -73,33 +78,48 @@ public class Selection {
   public void addViewer(String selectedViewer) {
 	  if(validateViewerAddition(selectedViewer)) {
 		  viewers.add(selectedViewer);
-		  System.out.println(String.format("Added viewer \"%s\"", selectedViewer));
+		  //System.out.println(String.format("Added viewer \"%s\"", selectedViewer));
 	  }
   }
   
   public void removeViewer(String selectedViewer) {
 	  if(validateViewerRemoval(selectedViewer)) {
 		  viewers.remove(selectedViewer);
-		  System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
+		  //System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
 	  }
   }
   
+  /**
+   * @return analysis type selected
+   */
   public String getAnalysisType() {
 	  return analysisType;
   }
 
+  /**
+   * @return country selected
+   */
   public String getCountry() {
 	  return country;
   }
 
+  /**
+   * @return start year selected
+   */
   public String getStartYear() {
 	  return startYear;
   }
 
+  /**
+   * @return end year selected
+   */
   public String getEndYear() {
 	  return endYear;
   }
   
+  /**
+   * @return list of viewers
+   */
   public List<String> getViewers() {
 	  return viewers;
   }

@@ -11,11 +11,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import analysis.Data;
-import java.util.List;
-
-import javax.swing.BorderFactory;
-import javax.swing.JTextArea;
-
 import analysis.Result;
 import analysis.Subject;
 

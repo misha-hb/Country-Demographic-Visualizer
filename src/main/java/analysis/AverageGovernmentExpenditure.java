@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 /**
  * Average of Government expenditure on education, total (% of GDP)
  *
  * Analysis type class for Average Government expenditure
  */
+
 public class AverageGovernmentExpenditure extends Analysis{
 	
 	public AverageGovernmentExpenditure() {

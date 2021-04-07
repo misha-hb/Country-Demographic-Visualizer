@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//carbon and gdp analysis
+/**
+ * Ratio of CO2 emissions (metric tons per capita) and GDP per capita (current US$)
+ *
+ * Analysis type class for ratio of CO2 emissions vs GDP per capita
+ */
 public class RatioOfCarbonAndGPD extends Analysis {
 	private Reader reader;
 	private String carbonString = "CO2 emissions";
@@ -32,6 +36,12 @@ public class RatioOfCarbonAndGPD extends Analysis {
 		return result;
 	}
 	
+	/**
+	 * compute ratio for turning the values of two data objects into a new data object with a list of ratios
+	 * @param d1 First data object for ratio
+	 * @param d2 Second data object for ratio
+	 * @return Ratio data object
+	 */
 	private Data computeRatio(Data d1, Data d2) {
 		List<Double> ratioList = new ArrayList<Double>();
 		

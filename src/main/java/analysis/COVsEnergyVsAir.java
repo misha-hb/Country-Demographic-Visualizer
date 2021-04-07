@@ -1,6 +1,7 @@
 package analysis;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CO2 emissions (metric tons per capita) vs Energy use (kg of oil equivalent per capita) vs PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Ratio of Government expenditure on education, total (% of GDP) vs Current health expenditure (% of GDP)
+ *
+ * Analysis type class for Ratio government expenditure vs Current health expenditure
+ */
 public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis {
 	
 	public GovernmentExpenditureEducationVsHealthExpenditure() {
@@ -30,6 +35,12 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 		return result;
 	}
 	
+	/**
+	 * compute ratio for turning the values of two data objects into a new data object with a list of ratios
+	 * @param d1 First data object for ratio
+	 * @param d2 Second data object for ratio
+	 * @return Ratio data object
+	 */
 	private Data computeRatio(Data d1, Data d2) {
 		
 		List<Double> ratioList = new ArrayList<Double>();

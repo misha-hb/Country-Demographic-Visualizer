@@ -3,8 +3,11 @@ package analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-
-//Health and mortality expenditure
+/**
+ * Current health expenditure per capita (current US$) vs Mortality rate, infant (per 1,000 live births)
+ *
+ * Analysis type class for Current health expenditure per capita vs Infant Mortality Rate
+ */
 public class HealthExpenditureVsMortality extends Analysis {
 	
 	public HealthExpenditureVsMortality() {

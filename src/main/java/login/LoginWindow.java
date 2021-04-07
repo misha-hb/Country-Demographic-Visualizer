@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
-
 /**
  * Validates user login through JFrame login window
  */
@@ -26,7 +25,9 @@ public class LoginWindow extends JFrame {
     private JTextField textUsername;
     private JPasswordField textPassword;
 
-    
+    /**
+     * constructor initializing components
+     */
     public LoginWindow() {
         initComponents();
     }
@@ -87,6 +88,7 @@ public class LoginWindow extends JFrame {
         });
     }
 
+    
     /**
      * Initiates window graphic components
      */

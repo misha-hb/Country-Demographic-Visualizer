@@ -1,7 +1,5 @@
 package main;
 
-import javax.swing.JPanel;
-
 import analysis.Subject;
 
 /**

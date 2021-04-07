@@ -1,9 +1,6 @@
 package userinterface;
 
-
-import javax.swing.JButton;
-
-import analysis.*;
+import analysis.Selection;
 
 public class RecalculateButton extends Button {
 	

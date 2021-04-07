@@ -6,13 +6,23 @@ import javax.swing.JComboBox;
 
 import analysis.Selection;
 
+/**
+ * Analysis Menu
+ * Adds all the analysis names into the analysis drop down menu
+ *
+ */
 public class AnalysisMenu extends DropDownMenu {
- 
+	
+	/**
+	 * Constructor for class
+	 * @param labelString
+	 * @param selection
+	 */
 	public AnalysisMenu(String labelString, Selection selection) {
 
 		super(labelString, selection);
 		
-		Vector<String> methodsNames = new Vector<String>();
+		Vector<String> methodsNames = new Vector<String>(); //Adds each analysis name into the analysis vector
 		methodsNames.add("Select analysis");
 		methodsNames.add("Average Forest Area");
 		methodsNames.add("Average Government Expenditure on Education");
@@ -25,7 +35,7 @@ public class AnalysisMenu extends DropDownMenu {
 
 		list = new JComboBox<String>(methodsNames);
 		
-		list.addActionListener(new SelectAction("analysis", selection, list));
+		list.addActionListener(new SelectAction("analysis", selection, list)); 
 		
 	}
 

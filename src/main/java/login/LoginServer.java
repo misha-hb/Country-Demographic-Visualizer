@@ -1,7 +1,5 @@
 package login;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -15,8 +13,10 @@ public class LoginServer {
   
   private static LoginServer instanceServer;
   
-  //singleton design pattern ensuring that only one user is logged in the entire time the system is
-  //being used
+  /**
+   * singleton design pattern ensuring that only one user is logged in the entire time the system is being used
+   * @return instance Server
+   */
   public static LoginServer getInstance() {
     if (instanceServer == null)
       instanceServer = new LoginServer();

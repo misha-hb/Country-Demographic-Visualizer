@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// Hospital beds and Health expenditure.
+
+/**
+ * Hospital beds (per 1,000 people) and Current health expenditure (per 1,000 people)
+ *
+ * Analysis type class for Hospital Beds vs Current Health Expenditure
+ */
 public class RatioHospitalAndHealthExpenditure extends Analysis {
 	
 	public RatioHospitalAndHealthExpenditure() {
@@ -30,6 +35,12 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 		return result;
 	}
 	
+	/**
+	 * compute ratio method for converting Health expenditure per capita into health expenditure per 1000 people. Creates a new data object with the changed data.
+	 * @param d1 first data object with data that will not be changed
+	 * @param d2 second data object with data that will be adjusted
+	 * @return new data object with adjusted data
+	 */
 	private Data computeRatio(Data d1, Data d2) {
 		
 		List<Double> healthList = d2.getValues();
