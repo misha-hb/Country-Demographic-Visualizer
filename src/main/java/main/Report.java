@@ -14,26 +14,37 @@ import analysis.Data;
 import analysis.Result;
 import analysis.Subject;
 
+/**
+ * Report class that can be displayed on the Main UI
+ */
 public class Report implements Viewer {
 
 	private Result result;
 
+	/**
+	 * Constructor
+	 * @param subject The result object that will have this report attached to it
+	 */
 	public Report(Result subject) {
 		this.result = subject;
 		subject.attach(this);
 	}
 
+	/**
+	 * Update method checks whether the passed Subject object is equal to the result instance variable and then does the drawViewer method if they are the same.
+	 */
 	public void update(Subject subject) {
 		if (subject.equals(result)) {
 			drawViewer();
 		}
 	}
 
+	/**
+	 * Method for creating and displaying the Report on the main UI. 
+	 */
 	public void drawViewer() {
 		
 		List<Data> dataList = result.getData();
-		
-		
 		
 		JTextArea report = new JTextArea();
 		report.setEditable(false);
@@ -45,13 +56,14 @@ public class Report implements Viewer {
 		reportMessage = String.format("%s\n", name);
 		reportMessage += "==============================\n";
 		
-		
+		//For result object with a dataList of size 1
 		if (dataList.size() == 1) {
 			
+			//For reports on the average analysis types
 			if (name.contentEquals("Average Forest area (% of land area)") || name.contentEquals("Average of Government expenditure on education, total (% of GDP)")) {
 				double average = result.getAverage();
 				reportMessage += String.format("Average:\n\t%s", average);	
-			}else {
+			}else { //For reports on the ratio analysis types
 				Data data = dataList.get(0);
 				List<Double> values = data.getValues();
 				List<Integer> years = data.getYears();
@@ -62,6 +74,7 @@ public class Report implements Viewer {
 					reportMessage += String.format("\t%s => %s\n", name, valuesIterator.next()) ;
 				}
 			}
+		//For result object with dataList of size 2 (2 series graphs)
 		}else if (dataList.size() == 2) {
 			
 			Data data1 = dataList.get(0);
@@ -91,6 +104,7 @@ public class Report implements Viewer {
 					reportMessage += String.format("\tMortality rate, infant (per 1,000 live births) => %s\n" , valuesIterator2.next());
 				}
 			}
+		// For result objects with dataList of size 3 (3 series graphs)
 		}else {
 			Data data1 = dataList.get(0);
 			Data data2 = dataList.get(1);
