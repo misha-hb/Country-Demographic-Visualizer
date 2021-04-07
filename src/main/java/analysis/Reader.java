@@ -11,16 +11,29 @@ import java.util.Scanner;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 
+/**
+ * Has methods for reading files and retrieving data from the World Bank Database
+ */
 public class Reader {
 	
 	public Reader() {
 	}
 	
+	/**
+	 * retrieves data from the World Bank Database by issuing an http request 
+	 * @param urlString for the http request
+	 * @param type
+	 * @return data object populated with retrieved data
+	 */
 	public Data retrieveData(String urlString, String type) {
+		
+			//stores the values and years to be retrieved in array lists
 			List<Double> values = new ArrayList<Double>();
 			List<Integer> years = new ArrayList<Integer>();
 			
 			try {
+				
+				//creates url
 				URL url = new URL(urlString);
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("GET");
@@ -36,6 +49,7 @@ public class Reader {
 					JsonArray jsonArray = new JsonParser().parse(inline).getAsJsonArray();
 					int sizeOfResults = jsonArray.get(1).getAsJsonArray().size();
 					
+					//retrieves data, populating the values and years array lists
 					for (int i = 0; i < sizeOfResults; i++) {
 						years.add(jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsInt());
 						if (jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").isJsonNull()) {
@@ -45,6 +59,7 @@ public class Reader {
 						}
 					}
 					
+					//sets the years and values retrieved as a data object and returns it
 					Data data = new Data(type, values, years);
 					return data;
 				}
@@ -64,6 +79,8 @@ public class Reader {
 	public List<String[]> readFile(String file) {
 		List<String[]> fileDatabase = new ArrayList<>();
 		try {
+
+			//reads the file and removes " marks and splits each line in the file, adding it to the array list
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String readLine = reader.readLine();
 			while (readLine != null) {
@@ -72,6 +89,8 @@ public class Reader {
 				readLine = reader.readLine();
 			}
 			reader.close();
+			
+			// array list with contents of the file returned
 	  	    return fileDatabase;
 	    }
 		catch (IOException e) {}
