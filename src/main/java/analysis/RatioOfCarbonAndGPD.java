@@ -14,6 +14,9 @@ public class RatioOfCarbonAndGPD extends Analysis {
 		super();	
 	}
 	
+	/**
+	 * calculate method creates a Result object based on the passed Selection object. Passes a list of data objects to the result object.
+	 */
 	public Result calculate(Selection selection) {
 		
 		Data carbonData = readData(CARBON, CARBONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());

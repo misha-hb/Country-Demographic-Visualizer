@@ -11,6 +11,9 @@ public class HealthExpenditureVsMortality extends Analysis {
 		super();
 	}
 	
+	/**
+	 * calculate method creates a Result object based on the passed Selection object. Passes a list of data objects to the result object.
+	 */
 	public Result calculate(Selection selection) {
 		//Collect data from selection
 		String country = selection.getCountry();

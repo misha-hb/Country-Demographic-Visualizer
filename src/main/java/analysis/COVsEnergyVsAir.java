@@ -2,6 +2,11 @@ package analysis;
 
 import java.util.*;
 
+/**
+ * CO2 emissions (metric tons per capita) vs Energy use (kg of oil equivalent per capita) vs PM2.5 air pollution, mean annual exposure (micrograms per cubic meter)
+ *
+ * Analysis type class for CO2 emissions vs Energy use vs Air pollution
+ */
 public class COVsEnergyVsAir extends Analysis{
 
 
@@ -9,6 +14,9 @@ public class COVsEnergyVsAir extends Analysis{
 		super();	
 	}
 	
+	/**
+	 * calculate method creates a Result object based on the passed Selection object. Passes a list of data objects to the result object.
+	 */
 	public Result calculate(Selection selection) {
 		
 		Data carbonData = readData(CARBON, CARBONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());

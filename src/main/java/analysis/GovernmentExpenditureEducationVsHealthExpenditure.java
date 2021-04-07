@@ -10,6 +10,9 @@ public class GovernmentExpenditureEducationVsHealthExpenditure extends Analysis 
 		super();
 	}
 	
+	/**
+	 * calculate method creates a Result object based on the passed Selection object. Passes a list of data objects to the result object.
+	 */
 	public Result calculate(Selection selection) {
 				
 		Data governmentEducationData = readData(EDUCATION, EDUCATIONCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());

@@ -11,6 +11,9 @@ public class RatioHospitalAndHealthExpenditure extends Analysis {
 		super();
 	}
 	
+	/**
+	 * calculate method creates a Result object based on the passed Selection object. Passes a list of data objects to the result object.
+	 */
 	public Result calculate(Selection selection) {
 		
 		Data hospitalBedsData = readData(BEDS, BEDSCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());

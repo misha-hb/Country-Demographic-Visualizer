@@ -11,6 +11,7 @@ public class HospitalAndHealthExpenditure extends Analysis {
 		super();
 	}
 	
+	
 	public Result calculate(Selection selection) {
 		
 		Data hospitalBedsData = readData(BEDS, BEDSCODE, selection.getCountry(), selection.getStartYear(), selection.getEndYear());
