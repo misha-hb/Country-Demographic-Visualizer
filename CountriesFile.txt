@@ -132,7 +132,6 @@ Country Code,"Country Name, Full ","Country Name, Abbreviation",Country Comments
 348,Hungary,Hungary,,HU,HUN,1962,Now
 352,Iceland,Iceland,,IS,ISL,1962,Now
 699,India,India,,IN,IND,1975,Now
-356,"India, excluding Sikkim","India, excl. Sikkim",,IN,IND,1962,1974
 360,Indonesia,Indonesia,,ID,IDN,1962,Now
 364,Iran,Iran,,IR,IRN,1962,Now
 368,Iraq,Iraq,,IQ,IRQ,1962,Now
