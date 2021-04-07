@@ -1,11 +1,20 @@
 package analysis;
 
+/**
+ * uses the factory design pattern
+ */
 public class AnalysisFactory {
 	 
+	/**
+	 * creates an analysis object based on user selections
+	 * @param selection contains user selections that include end/start years, analysis type, country
+	 * @return an analysis object
+	 */
 	public Analysis createAnalysis(Selection selection) {
 		Analysis analysisObj;
 		String type = selection.getAnalysisType();
 		
+		//analysis object is created based on the type of analysis the user has selected
 		if (type.contentEquals("CO2 Emissions vs Energy Use vs PM2.5 Air Pollution"))
 			analysisObj = new COVsEnergyVsAir();
 		else if (type.contentEquals("PM2.5 Air Pollution vs Forest Area"))
