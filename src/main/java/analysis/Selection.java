@@ -55,7 +55,6 @@ public class Selection {
   public void setStartYear(String selectedYear) {
 	  if ((endYear != null && validatePeriod(Integer.parseInt(selectedYear), Integer.parseInt(endYear))) || endYear == null) {
 		  startYear = selectedYear;
-		  //System.out.println(String.format("Selected start year \"%s\"", selectedYear));
 	  }
   }
   
@@ -66,7 +65,6 @@ public class Selection {
   public void setEndYear(String selectedYear) {
 	  if ((startYear != null && validatePeriod(Integer.parseInt(startYear), Integer.parseInt(selectedYear))) || startYear == null) {
 		  endYear = selectedYear;
-		  //System.out.println(String.format("Selected end year \"%s\"", selectedYear));
 	  }
   }
   
@@ -77,14 +75,12 @@ public class Selection {
   public void addViewer(String selectedViewer) {
 	  if(validateViewerAddition(selectedViewer)) {
 		  viewers.add(selectedViewer);
-		  //System.out.println(String.format("Added viewer \"%s\"", selectedViewer));
 	  }
   }
   
   public void removeViewer(String selectedViewer) {
 	  if(validateViewerRemoval(selectedViewer)) {
 		  viewers.remove(selectedViewer);
-		  //System.out.println(String.format("Removed viewer \"%s\"", selectedViewer));
 	  }
   }
   
