@@ -4,6 +4,7 @@
 
 ## Installation
 
+Install Eclipse IDE for Java and download the project. Run LoginWindow in login.
 
 ## Usage
 
