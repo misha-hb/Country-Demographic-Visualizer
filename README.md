@@ -12,3 +12,4 @@ Install Eclipse IDE for Java and download the project. Run LoginWindow in login.
 Enter a valid username and password (e.g. ajackson23, uwoPassWord) and click submit. Choose an analysis type first, then make selections for a country, start/end years, and viewers. When all selections are made, click "Recalculate" for the viewers to display the analysis data.
 
 ## Authors
+Misha Butt, Emily Missetta Grant , Marshall Mevissen Moore , Jennifer Yoon

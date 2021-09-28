@@ -27,5 +27,13 @@
 			<version>1.5.0</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>Country Demopgrahic Visualizer</groupId>
+				<artifactId>2212B</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
 
